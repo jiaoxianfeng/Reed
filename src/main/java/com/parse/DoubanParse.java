@@ -11,10 +11,10 @@ import org.jsoup.select.Elements;
 import com.util.TimeUtils;
 
 public class DoubanParse {
-    public static String geturl(String html,String keyword) throws Exception{
+    public static Elements geturl(String html,String keyword) throws Exception{
         Document doc = Jsoup.parse(html);
         Elements elements = doc.select("div[class=content]");
-        return elements.select("a").attr("href");
+        return elements.select("a");
     }
     public static List<Model> getData (String html,String keyword) throws Exception{
         //获取的数据，存放在集合中
@@ -30,6 +30,7 @@ public class DoubanParse {
             String mainactorName = ele.select("a[rel=v:starring]").text();
             String filmLength = ele.select("span[property=v:runtime]").text();
             String introduction = ele.select("span[class=all hidden]").text();
+            String posterUrl = ele.select("div[id=mainpic]").select("img").attr("src");
             //创建一个对象
             Model doubanModel=new Model();
             //对象的值
@@ -38,6 +39,7 @@ public class DoubanParse {
             doubanModel.setMainactorName(mainactorName);
             doubanModel.setFilmlength(filmLength);
             doubanModel.setIntroduction(introduction);
+            doubanModel.setPosterUrl(posterUrl);
             //将每一个对象的值，保存到List集合中
             data.add(doubanModel);
         }

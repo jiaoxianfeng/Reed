@@ -81,12 +81,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="715" />
+          <entry key="java" value="1021" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="715" />
+          <entry key="JAVA" value="1021" />
         </counts>
       </usages-collector>
     </session>
@@ -96,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/main/douban.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="437">
+              <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,9 +108,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="276">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
+                <element signature="e#273#274#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#343#344#0" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
                 <element signature="e#226#227#0" expanded="true" />
                 <element signature="e#252#253#0" expanded="true" />
                 <element signature="e#305#306#0" expanded="true" />
@@ -139,7 +143,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/util/DoubanHttpRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="171">
               <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
             </state>
           </provider>
@@ -148,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/parse/DoubanParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="31" column="78" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+            <state relative-caret-position="299">
+              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,8 +220,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/util/DoubanHttpRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/db/MYSQLControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/main/douban.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/parse/DoubanParse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/main/douban.java" />
       </list>
     </option>
   </component>
@@ -485,8 +489,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566543316367" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566546213574" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java/JDCrawler-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="模块" />
@@ -683,12 +687,12 @@
       <workItem from="1566397594530" duration="335000" />
       <workItem from="1566527159917" duration="4495000" />
       <workItem from="1566531811022" duration="69000" />
-      <workItem from="1566531928890" duration="4438000" />
+      <workItem from="1566531928890" duration="7337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39163000" />
+    <option name="totallyTimeSpent" value="42062000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -701,9 +705,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.29758713" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.29758713" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.29758713" />
       <window_info id="设计器" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -712,7 +715,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -722,7 +725,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013405" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="调试" order="11" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49932975" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -781,13 +784,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/parse/MerriamParse.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/parse/OxfordWordParse.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/parse/DdParse.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/util/DoubanHttpRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/db/MyDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -811,9 +807,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="276">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
             <element signature="e#226#227#0" expanded="true" />
             <element signature="e#252#253#0" expanded="true" />
             <element signature="e#305#306#0" expanded="true" />
@@ -838,10 +838,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/util/DoubanHttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/parse/DoubanParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="31" column="78" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+        <state relative-caret-position="299">
+          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -850,8 +857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/main/douban.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="437">
+          <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

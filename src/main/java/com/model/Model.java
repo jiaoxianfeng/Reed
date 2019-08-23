@@ -7,7 +7,17 @@ public class Model {
 	private String mainactorName;
 	private String filmlength;
 	private String introduction;
+	private String posterUrl;
 	private String Crawltime;
+
+	public String getPosterUrl() {
+		return posterUrl;
+	}
+
+	public void setPosterUrl(String posterUrl) {
+		this.posterUrl = posterUrl;
+	}
+
 	public String getIntroduction() {
 		return introduction;
 	}
