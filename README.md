@@ -2,13 +2,13 @@
 
 图片素材在`src`文件夹内  
   
-[墨刀预览链接]("https://org.modao.cc/app/wu4q7fdgfjojzmaadlw9wu3ogrzqy")  
+[墨刀预览链接](https://org.modao.cc/app/wu4q7fdgfjojzmaadlw9wu3ogrzqy "悬停展示")  
 
 `https://org.modao.cc/app/wu4q7fdgfjojzmaadlw9wu3ogrzqy`  
 
 ## 调色板
 
-$\color{#FFF}{百白\#FFF}$  
+$\color{#FFF}{白色\#FFF}$  
 $\color{#EEE}{浅色\#EEE}$  
 $\color{#CCC}{中间层色\#CCC}$  
 $\color{#AAA}{深色\#AAA}$  
