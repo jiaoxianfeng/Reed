@@ -38,9 +38,6 @@
 * 作者账户(account)          String
 * 内容(cnotent)              String
 * 发布时间(postTime)         Date
-* 回复数(replyNum)           Long
-* 点赞数(likeNum)            Long
-* 收藏数(collectNum)         Long
 
 
 ## 赞(Like)
