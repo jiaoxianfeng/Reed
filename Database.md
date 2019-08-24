@@ -96,4 +96,5 @@
 * 组队编号(id) 	             ObjectId
 * 团队成员账户(account)      String
 * 团队成员权限(power)        String
+* 团队名称(teamName)         String
 * 团队创建时间(createTime)   Date
