@@ -24,7 +24,6 @@
             <div class="from">
               <p>精选评论</p>
             </div>
-
           </v-list-item-title>
         </v-list-item-content>
 
@@ -35,8 +34,24 @@
     <v-card-text class="headline text-content">
       "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
     </v-card-text>
+    <v-card-actions>
+      <v-list-item class="grow">
 
+        <v-row
+          align="center"
+          justify="end"
+          class="comment-bottom"
+        >
+          <v-icon class="mr-1" color="white">mdi-comment</v-icon>
+          <span class="subheading mr-2">999</span>
+          <span class="mr-1">·</span>
+          <v-icon class="mr-1" color="red">mdi-thumb-up</v-icon>
+          <span class="subheading">1w+</span>
+        </v-row>
+      </v-list-item>
+    </v-card-actions>
   </v-card>
+
 </template>
 
 <script>
@@ -94,5 +109,8 @@
   .comment-bottom{
     color: white;
     margin-right: 20px;
+  }
+  .thumb_up{
+    margin-right: 100px;
   }
 </style>

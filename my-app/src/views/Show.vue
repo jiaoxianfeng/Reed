@@ -66,7 +66,7 @@ export default {
     color:#CCC;
     font-size:50px;
     margin-left: 40%;
-    margin-top: 30px;
+    margin-top: 40px;
   }
   .intro-right{
     background-color: aliceblue;
