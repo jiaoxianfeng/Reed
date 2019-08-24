@@ -28,12 +28,27 @@
       </v-col>
     </v-row>
     <SegText :text="hot" class="segtext-hot"/>
+    <div class="comments">
+      <v-row
+        justify="stretch"
+      >
+        <Comments />
+        <div style="width: 100px"></div>
+
+        <Comments />
+
+
+      </v-row>
+
+    </div>
+
   </div>
 </template>
 
 <script>
 import NavBar from '../components/NavBar'
 import SegText from '../components/SegText'
+import Comments from '../components/Comments'
 
 export default {
   data () {
@@ -43,7 +58,8 @@ export default {
   },
   components: {
     NavBar,
-    SegText
+    SegText,
+    Comments
   },
 };
 </script>
@@ -90,4 +106,10 @@ export default {
   .segtext-hot{
     margin-top: 62px;
   }
+
+  .comments{
+    float: left;
+    padding: 50px;
+  }
+
 </style>

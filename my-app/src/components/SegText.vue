@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
   .space{
-    height: 180px;
+    height: 160px;
     background-color: #AAAAAA;
     display:-webkit-box;
     -webkit-box-align:center;/* 垂直居中 */
