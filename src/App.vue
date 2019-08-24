@@ -1,36 +1,24 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
     <v-content>
-      <HelloWorld/>
+      <SearchResultBar v-bind:image="image" v-bind:title="title" v-bind:fstl="fstl" v-bind:scdl="scdl"></SearchResultBar>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import SearchResultBar from './components/SearchResultBar';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    SearchResultBar,
   },
   data: () => ({
-    //
+    image:"https://cdn.vuetifyjs.com/images/profiles/marcus.jpg",
+    title:"I'm the title",
+    fstl:"I'm the first line",
+    scdl:"I'm the second line",
   }),
 };
 </script>
