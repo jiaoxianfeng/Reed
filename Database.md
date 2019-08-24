@@ -90,3 +90,10 @@
 发布日期   Date date;
 发布板块Id String placeId;  //发布的Id，可以是书籍，影音 ，帖子，音乐
 ```
+
+## 组队(Team)
+
+* 组队编号(id) 	             ObjectId
+* 团队成员账户(account)      String
+* 团队成员权限(power)        String
+* 团队创建时间(createTime)   Date
