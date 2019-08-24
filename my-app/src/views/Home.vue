@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavBar/>
     <v-row no-gutters>
       <v-col cols="7" >
         <img src= "../imgs/full-logo.png" class="logo-left">
@@ -27,7 +26,7 @@
         </div>
       </v-col>
     </v-row>
-    <SegText :text="hot" class="segtext-hot"/>
+    <SegText :text="topic" class="segtext-hot"/>
     <div class="comments">
       <v-row
         justify="stretch"
@@ -53,7 +52,8 @@ import Comments from '../components/Comments'
 export default {
   data () {
     return {
-      hot: '今日热点'
+      hot: '今日热点',
+      topic: '今日话题'
     }
   },
   components: {

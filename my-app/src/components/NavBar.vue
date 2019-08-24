@@ -9,11 +9,11 @@
       class="nav-container"
     >
       <img src= "../imgs/text-only -white.png" class="logo-header">
-      <v-tab>主页</v-tab>
-      <v-tab>书籍</v-tab>
-      <v-tab>影视</v-tab>
-      <v-tab>小组</v-tab>
-      <v-tab>我的</v-tab>
+      <v-tab><router-link class="link-text" to="/">主页</router-link></v-tab>
+      <v-tab><router-link class="link-text" to="/selfinfo">书籍</router-link></v-tab>
+      <v-tab><router-link class="link-text" to="/selfinfo">影视</router-link></v-tab>
+      <v-tab><router-link class="link-text" to="/forum">小组</router-link></v-tab>
+      <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
       <v-tab></v-tab>
       <v-tab></v-tab>
       <v-tab></v-tab>
@@ -66,5 +66,14 @@ export default {
 .search{
   float: right;
 }
+.link-text{
+  color: white;
+}
 
+a {
+  text-decoration: none;
+}
+.router-link-active {
+  text-decoration: none;
+}
 </style>
