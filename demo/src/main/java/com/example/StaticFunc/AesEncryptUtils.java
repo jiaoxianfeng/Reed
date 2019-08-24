@@ -1,4 +1,4 @@
-package com.example.AesEncrypt;
+package com.example.StaticFunc;
 
 
 import org.apache.tomcat.util.codec.binary.Base64;

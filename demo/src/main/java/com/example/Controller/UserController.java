@@ -1,20 +1,19 @@
 package com.example.Controller;
 
-import com.example.AesEncrypt.AesEncryptUtils;
+import com.example.StaticFunc.AesEncryptUtils;
 import com.example.Dataset.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.QueryTimeoutException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import static com.example.StaticFunc.Static.GetCurrentTime;
 
 @RestController
 public class UserController {
@@ -24,8 +23,8 @@ public class UserController {
     @Value("${com.example.mongodb.collection.User}")
     private String USER_COLLECTION_NAME;
 
-    @RequestMapping(value = "/find", method = RequestMethod.GET)
-    public String find() throws Exception {
+    @RequestMapping(value = "/FindAllUser", method = RequestMethod.GET)
+    public String FindAllUser() throws Exception {
         List<User> users = mongoTemplate.findAll(User.class);
         return AesEncryptUtils.encrypt(users.toString());
     }
@@ -120,11 +119,4 @@ public class UserController {
         return mongoTemplate.findOne(query,Map.class,USER_COLLECTION_NAME);
     }
 
-    public static Date GetCurrentTime() {
-        Calendar calendar = Calendar.getInstance();
-        Date now = new Date();
-        calendar.setTime(now);
-        calendar.add(Calendar.HOUR_OF_DAY,8);
-        return calendar.getTime();
-    }
 }
