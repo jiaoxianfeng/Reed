@@ -1,41 +1,49 @@
 <template>
   <div>
     <NavBar/>
-      <v-row no-gutters>
-        <v-col cols="7" >
-          <img src= "../imgs/full-logo.png" class="logo-left">
-        </v-col>
-        <v-col cols="5" class="right-content">
-          <div>
-            <p class="b-text">人，是一根会思考的苇草</p>
-            <p class="s-text">挖掘更多思想...</p>
-            <v-text-field
+    <v-row no-gutters>
+      <v-col cols="7" >
+        <img src= "../imgs/full-logo.png" class="logo-left">
+      </v-col>
+      <v-col cols="5" class="right-content">
+        <div>
+          <p class="b-text">人，是一根会思考的苇草</p>
+          <p class="s-text">挖掘更多思想...</p>
+          <v-text-field
+          v-model="last"
+          label="Username"
+          filled
+          shaped
+          class="username"></v-text-field>
+
+          <v-text-field
             v-model="last"
-            label="Username"
+            label="Password"
             filled
             shaped
-            class="username"></v-text-field>
+          ></v-text-field>
 
-            <v-text-field
-              v-model="last"
-              label="Password"
-              filled
-              shaped
-            ></v-text-field>
-
-            <v-btn block color="secondary" dark>Login / Register</v-btn>
-          </div>
-        </v-col>
-      </v-row>
+          <v-btn block color="secondary" dark>Login / Register</v-btn>
+        </div>
+      </v-col>
+    </v-row>
+    <SegText :text="hot" class="segtext-hot"/>
   </div>
 </template>
 
 <script>
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar'
+import SegText from '../components/SegText'
 
 export default {
+  data () {
+    return {
+      hot: '今日热点'
+    }
+  },
   components: {
     NavBar,
+    SegText
   },
 };
 </script>
@@ -77,5 +85,9 @@ export default {
 
   .btn-large{
     width: 200px;
+  }
+
+  .segtext-hot{
+    margin-top: 62px;
   }
 </style>
