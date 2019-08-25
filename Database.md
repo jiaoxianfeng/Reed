@@ -79,6 +79,7 @@
 * 内容(content)              String
 * 发布日期(date)             Date
 * 发布板块Id(placeId)        String(发布的Id,可以是书籍,影音,帖子,音乐)
+* 类型(type)                    Int //类型，书籍=1，影音=2，音乐=3，帖子=4
 
 
 ## 组队(Team)
