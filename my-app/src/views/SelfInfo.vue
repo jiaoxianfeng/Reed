@@ -1,25 +1,16 @@
 <template>
   <div>
-    <v-row no-gutters>
-        <v-col cols="5" >
+    <v-row no-gutters style="margin-left: auto;margin-right: auto;">
+        <v-col cols="3" >
         <div class="left-user-info">
           <UserInfo />
         </div>
       </v-col>
-      <v-col cols="7">
+      <v-col cols="9">
         <div>
           <div class="comment-book">
             <p class="comment-book-text">评论过的书籍 1</p>
           </div>
-          <!--<div class="comment-img">-->
-            <!--<v-img-->
-              <!--class="avatar-img"-->
-              <!--src="https://img1.doubanio.com/view/subject/l/public/s4592217.jpg"-->
-              <!--height="205px"-->
-              <!--width="160px"-->
-              <!--position="center center"-->
-            <!--&gt;</v-img>-->
-          <!--</div>-->
           <HistoryComment />
           <div class="comment-movie">
             <p class="comment-book-text">评论过的电影 2</p>
@@ -36,15 +27,18 @@
     <div class="comments">
       <v-row
         justify="stretch"
+        style="margin-right: auto;margin-left: auto;"
       >
-        <SelfComments />
-        <div style="width: 100px"></div>
-
-        <SelfComments />
-
-
+        <v-col>
+          <SelfComments />
+        </v-col>
+        <v-col>
+          <SelfComments />
+        </v-col>
+        <v-col>
+          <SelfComments />
+        </v-col>
       </v-row>
-
     </div>
   </div>
 </template>
