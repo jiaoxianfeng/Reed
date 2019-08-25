@@ -2,8 +2,9 @@
 <div>
   <Post />
   <v-row>
-    <SelfComments style="width: 700px;" />
-    <SelfComments style="width: 700px;" />
+    <SelfComments :toptag="1" style="width: 400px;" />
+    <SelfComments :toptag="2" style="width: 400px;" />
+    <SelfComments style="width: 400px;" />
   </v-row>
 
   <PostReply />
