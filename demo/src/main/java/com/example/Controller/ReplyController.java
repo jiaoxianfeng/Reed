@@ -36,11 +36,25 @@ public class ReplyController {
         return replyList;
     }
 
-    //以上是个人主页内容的评论
-    @PostMapping(value ="/reply/pagenate")
-    public String pagenate(@RequestBody Map<String,Object> map) {
-        return "";
+    /**
+     * 查找书、影、音、帖下的回复
+     * @param map map中需要存在一个以"id"为键的键值对,这个id是要查找回复的书籍、影视、音乐、帖子的ID
+     * @return
+     */
+
+    @PostMapping(value ="/reply/list")
+    public List<ReplyEntity> List(@RequestBody Map<String,Object> map) {
+        String id = map.get("id").toString();
+        Query query = new Query(Criteria.where("placeId").is(id));
+        List<ReplyEntity> replyList = mongoTemplate.find(query, ReplyEntity.class,REPLY_COLLECTION_NAME);
+        return replyList;
     }
+
+    /**
+     * 更新（暂时不用）
+     * @param reply
+     * @return
+     */
     @PostMapping(value = "/reply/update")
     public String update(@RequestBody ReplyEntity reply) {
         mongoTemplate.save(reply);
