@@ -20,10 +20,10 @@
           <div class="actor-name">主演:宋康昊 李善均 赵汝贞</div>
         </v-card-text>
         <v-btn icon color="red">
-          <v-icon>mdi-heart</v-icon>
+          <v-icon>mdi-thumb-up</v-icon>
         </v-btn>
         <v-btn icon color="green">
-          <v-icon>mdi-heart</v-icon>
+          <v-icon>mdi-thumb-down</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -34,14 +34,14 @@
 
   }
   .dimback{
-    background: #CCC;
+    background: #EEE;
   }
   .pic{
     background: url(../imgs/movie2.jpg) no-repeat  -140px -20px;
     height:400px;
     width: 100%;
     margin-top: 11px;
-    opacity:0.6; filter: alpha(opacity=60);
+    opacity:0.4; filter: alpha(opacity=60);
   }
   .movie-name{
     margin-top: 20px;
