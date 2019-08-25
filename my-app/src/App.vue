@@ -4,7 +4,7 @@
     <router-view/>
   </v-app>
   <!--<v-app>-->
-    <!--<Post />-->
+    <!--<UserInfo />-->
   <!--</v-app>-->
 
 </template>
@@ -14,9 +14,13 @@ import NavBar from "./components/NavBar"
 import SegText from "./components/SegText"
 import InfoCard from "./components/InfoCard"
 import Comments from "./components/Comments"
+import SelfComments from "./components/SelfComments"
+import HistoryComment from "./components/HistoryComment"
 import UserInfo from "./components/UserInfo"
 import TeamManage from "./components/TeamManage"
 import Post from "./components/Post"
+import PostReply from "./components/PostReply"
+
 
 export default {
   name: 'App',
@@ -27,7 +31,10 @@ export default {
     Comments,
     UserInfo,
     TeamManage,
-    Post
+    Post,
+    HistoryComment,
+    PostReply,
+    SelfComments
   },
   data: () => ({
     hot: '今日热门'
