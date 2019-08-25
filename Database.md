@@ -14,7 +14,7 @@
 * 自我介绍(introduction)     String
 * 注册时间(joinTime)         Date
 * 性别(gender) 				 String
-* 头像(profilePicture)       GridFS(备选)
+* 头像(profilePicture)       BSON
 
 
 ##   书籍(Book)
