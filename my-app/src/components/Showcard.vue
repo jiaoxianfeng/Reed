@@ -11,7 +11,8 @@
       <v-col cols="5">
         <div class="left-back">
           <img src="../imgs/movie2.jpg" class="content-left">
-        </div>
+        </div><br>
+        <ScoreBar/>
       </v-col>
       <v-col cols="5" class="content-right">
         <v-card-text>
@@ -29,6 +30,14 @@
     </v-row>
   </v-card>
 </template>
+
+<script>
+  import ScoreBar from "../components/ScoreBar";
+  export default {
+    name: "Showcard",
+    components: {ScoreBar},
+  }
+</script>
 <style scoped>
   .card{
 

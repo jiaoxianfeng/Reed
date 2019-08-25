@@ -18,11 +18,13 @@
 import NavBar from '../components/NavBar';
 import Showcard from '../components/Showcard';
 import Comments from '../components/Comments-star';
+import ScoreBar from '../components/ScoreBar';
 export default {
   components: {
     NavBar,
     Showcard,
     Comments,
+    ScoreBar,
   },
 };
 </script>

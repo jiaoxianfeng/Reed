@@ -18,11 +18,9 @@
 </template>
 
 <script>
-  import { mdiAccount } from '@mdi/js'
   export default {
     name: 'ScoreBar',
     data: () => ({
-      svgPath: mdiAccount,
       score: -40.7
     }),
     computed: {
