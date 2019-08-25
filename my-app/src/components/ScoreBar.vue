@@ -29,19 +29,19 @@
       red_width: function() {
         if(this.score<0)
           return - this.score + 'px'
-        else 
+        else
           return 0
       },
       green_width: function() {
         if(this.score>0)
           return this.score + 'px'
-        else 
+        else
           return 0
       },
       getcolor: function() {
         if(this.score>0)
           return '#8BC34A'
-        else 
+        else
           return '#E51C23'
       }
     }

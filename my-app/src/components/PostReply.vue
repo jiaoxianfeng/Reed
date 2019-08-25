@@ -12,6 +12,7 @@
           hint="25字符及以上"
           filled
           auto-grow
+          :value="reply"
         ></v-textarea>
         <v-btn depressed large color="#AEAEAE" dark width="160" class="reply-btn">
           发表
@@ -27,7 +28,12 @@
 
 <script>
     export default {
-        name: "PostReply"
+        name: "PostReply",
+      data () {
+        return {
+          reply: ''
+        }
+      }
     }
 </script>
 

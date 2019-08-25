@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto comments-card"
     color="#ccc"
-    max-width="400"
+    width="400"
     elevation="5"
     style="border-radius: 0;"
   >
@@ -12,12 +12,12 @@
           <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
             <v-img
               class="elevation-0"
-              src="../imgs/rotating_card_profile.png"
+              :src="avatar_img"
             ></v-img>
           </v-list-item-avatar>
 
           <v-list-item-content class="user-name">
-            <v-list-item-title class="user-name-text">Evan You</v-list-item-title>
+            <v-list-item-title class="user-name-text">{{name}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-card-actions>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <v-card-text v-if="reply===0" class="text-title font-weight-bold">
-      大家更喜欢什么风格的诗呢？
+      {{title}}
     </v-card-text>
 
     <v-card v-if="reply===2" class="replay_content" elevation="0" tile>
@@ -36,21 +36,21 @@
           <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
             <v-img
               class="elevation-0"
-              src="../imgs/rotating_card_profile.png"
+              :src="reply_avatar_img"
             ></v-img>
           </v-list-item-avatar>
           <v-list-item-content class="user-name">
-            <v-list-item-title class="user-name-text" style="color: #aaa;font-size: 20px">Evan You</v-list-item-title>
+            <v-list-item-title class="user-name-text" style="color: #aaa;font-size: 20px">{{reply_name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-card-actions>
       <v-card-text class="text-content" style="color: #aaa">
-        "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
+        {{reply_comment}}
       </v-card-text>
     </v-card>
 
     <v-card-text class="text-content">
-      "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
+      {{comment}}
     </v-card-text>
     <v-card-actions style="padding-bottom: 0px">
       <v-list-item class="grow">
@@ -61,10 +61,10 @@
           class="comment-bottom"
         >
           <v-icon class="mr-1" color="white">mdi-comment</v-icon>
-          <span class="subheading mr-2">256</span>
+          <span class="subheading mr-2">{{num_comment}}</span>
           <span class="mr-1"></span>
           <v-icon class="mr-1" color="white">mdi-thumb-up</v-icon>
-          <span class="subheading">45</span>
+          <span class="subheading">{{num_like}}</span>
         </v-row>
       </v-list-item>
     </v-card-actions>
@@ -72,19 +72,52 @@
 </template>
 
 <script>
-    export default {
-        name: "Comments",
-        data: () => ({
-            //
-        }),
-        props:["toptag","reply"]
+  export default {
+    name: "Comments",
+    data: () => ({
+        //
+    }),
+    props: {
+      toptag:{
+        default: 0
+      },
+      reply:{
+        default: 0
+      },
+      reply_name:{
+        default: 'logos'
+      },
+      reply_avatar_img:{
+        default: 'https://www.ruan8.com/uploadimg/image/20180813/20180813135317_70068.jpg'
+      },
+      avatar_img:{
+        default: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg'
+      },
+      name: {
+        default: 'Evan You'
+      },
+      comment: {
+        default: '"Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."'
+      },
+      num_comment: {
+        default: 256
+      },
+      num_like:{
+        default: 45
+      },
+      reply_comment:{
+        default: '"Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."'
+      },
+      title:{
+        default: '大家更喜欢什么风格的诗呢？'
+      }
     }
+  }
 </script>
 
 <style scoped>
   .comments-card{
-    margin: 20px;
-
+    margin:20px 20px 10px 20px;
   }
 
   .team-avatar{

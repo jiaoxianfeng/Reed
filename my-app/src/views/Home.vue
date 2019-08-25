@@ -35,32 +35,25 @@
     <SegText :text="hot" class="segtext-hot"/>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :height="height" :width="width"/>
-        <HistoryComment :height="height" :width="width"/>
+        <HistoryComment :card_content="hot_content"/>
+        <HistoryComment :card_content="hot_content"/>
       </div>
     </div>
-    <SegText :text="topic" class="segtext-hot"/>
+    <SegText :text="topic" class="segtext-topic"/>
     <div class="comments">
       <v-row
-        justify="stretch"
+        no-gutters
+        justify="start"
       >
-        <Comments />
-        <div style="width: 100px"></div>
-
-        <Comments />
-
-        <div style="width: 100px"></div>
-        <Comments />
-
-        <Comments />
-
-        <div style="width: 100px"></div>
-
-        <Comments />
-
-        <div style="width: 100px"></div>
-        <Comments />
-
+        <v-col v-for="(data, index) in topics"
+               :key="index"
+               md="4"
+        >
+          <Comments :avatar_img="topics.avatar_img" :name="topics.name" :team_img="topics.team_img"
+                    :team_name="topics.team_name" :title="topics.title" :content="topics.content"
+                    :num_comment="topics.num_comment" :num_like="topics.num_like"
+          />
+        </v-col>
 
       </v-row>
       <div style="height: 100px"></div>
@@ -82,7 +75,25 @@ export default {
       topic: '今日话题',
       height: '560px',
       width: '310px',
-      register: false
+      register: false,
+      username: '',
+      password: '',
+      re_password: '',
+      hot_content: [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      topics:[
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
     }
   },
   methods: {

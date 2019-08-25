@@ -1,17 +1,13 @@
 <template>
 <div>
   <Post />
-  <v-row no-gutters>
-    <v-col>
-      <SelfComments :reply="0" :toptag="1" style="width: 400px;" />
-      <SelfComments :reply="1" style="width: 400px;" />
-    </v-col>
-    <v-col>
-      <SelfComments :reply="0" :toptag="2" style="width: 400px;" />
-      <SelfComments :reply="2" style="width: 400px;" />
-    </v-col>
-    <v-col>
-      <SelfComments :reply="0" style="width: 400px;" />
+  <v-row justify="start">
+
+    <v-col v-for="(data, index) in selfComments"
+           :key="index"
+           md="4"
+    >
+      <SelfComments :reply="data.reply" :toptag="data.toptag" style="width: 400px;" />
     </v-col>
   </v-row>
 
@@ -27,6 +23,30 @@ import PostReply from '../components/PostReply'
 
 export default {
   name: "Forum",
+  data () {
+    return {
+      selfComments: [
+        {
+          "reply": 0,
+          "toptag": 1,
+        },
+        {
+          "reply": 0,
+          "toptag": 1,
+        },
+        {
+          "reply": 1,
+        },
+        {
+          "reply": 0,
+          "toptag": 2,
+        },
+        {
+          "reply": 2
+        }
+      ]
+    }
+  },
   components: {
     NavBar,
     Post,

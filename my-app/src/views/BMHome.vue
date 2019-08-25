@@ -19,19 +19,11 @@
       </div>
     </div>
     <p class="content-title">精彩评论</p>
-    <v-row no-gutters>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-    </v-row>
-    <v-row no-gutters>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-      <v-col>
+    <v-row justify="start" >
+      <v-col v-for="(data, index) in wonderfulComments"
+             :key="index"
+             md="6"
+      >
         <WonderfulComment />
       </v-col>
     </v-row>
@@ -44,6 +36,15 @@
   import WonderfulComment from '../components/WonderfulComment'
   export default {
     name: "BMHome",
+    data () {
+      return {
+        wonderfulComments:[
+          {},
+          {},
+          {}
+        ]
+      }
+    },
     components: {
       HistoryComment,
       WonderfulComment

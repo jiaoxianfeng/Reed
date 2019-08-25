@@ -2,11 +2,11 @@
   <div class="team-container">
     <v-row no-gutters>
       <v-col cols="2"
-             style="margin:auto;padding-right=10px"
+             style="margin:auto;padding-right:10px"
       >
         <v-img
           class="team-img"
-          src="../imgs/rotating_card_profile.png"
+          :src="team_img"
           height="80px"
           width="80px"
           position="center center"
@@ -15,10 +15,10 @@
       </v-col>
       <v-col cols="6" style="padding-left: 10px">
         <p class="team-name">
-          诗和远方
+          {{team_name}}
         </p>
         <p class="team-position">
-          管理员
+          {{position}}
         </p>
       </v-col>
       <v-col cols="4" class="team-btn-container">
@@ -31,7 +31,18 @@
 
 <script>
 export default {
-    name: "TeamManage"
+    name: "TeamManage",
+    props: {
+      team_img:{
+        default: 'https://upload-images.jianshu.io/upload_images/2707438-61bec868c535b5d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp'
+      },
+      team_name: {
+        default: '诗和远方'
+      },
+      position: {
+        default: '管理员'
+      },
+    }
 }
 </script>
 

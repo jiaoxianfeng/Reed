@@ -4,7 +4,7 @@
       <v-col cols="3" class="movie-img-container">
         <v-img
           class="movie-img"
-          src="https://www.uweekly.sg/wp-content/uploads/2015/01/20150112-promo-parasyte.jpg"
+          :src="content_img"
           height="90%"
           width="80%"
           position="center center"
@@ -14,17 +14,17 @@
         <v-list-item class="grow">
           <v-list-item-avatar tile style="width: 60px;height: 60px">
             <v-img
-              src="../imgs/rotating_card_profile.png"
+              :src="avatar_img"
               style="margin-top: 12px"
             ></v-img>
           </v-list-item-avatar>
 
           <v-list-item-content class="user-name">
-            <v-list-item-title class="user-name-text">Evan You</v-list-item-title>
+            <v-list-item-title class="user-name-text">{{name}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <p class="movie-comment">
-          我觉得很 OK
+          {{content}}
         </p>
         <v-list-item class="grow">
 
@@ -33,7 +33,7 @@
             justify="end"
             class="comment-bottom"
           >
-            <span class="subheading">45</span>
+            <span class="subheading">{{num_like}}</span>
             <v-icon class="mr-1 thumb-up" color="white">mdi-thumb-up</v-icon>
             <div style="width: 10px"></div>
 
@@ -45,9 +45,28 @@
 </template>
 
 <script>
-    export default {
-        name: "WonderfulComment"
+export default {
+  name: "WonderfulComment",
+  props: {
+    avatar_img:{
+      default: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg'
+    },
+    name: {
+      default: 'Evan You'
+    },
+    content_img: {
+      default: 'https://www.uweekly.sg/wp-content/uploads/2015/01/20150112-promo-parasyte.jpg'
+    },
+    content:{
+      default: '我觉得很 OK'
+    },
+    num_like: {
+      default: 45
     }
+  }
+
+
+}
 </script>
 
 <style scoped>

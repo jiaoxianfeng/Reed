@@ -54,7 +54,10 @@
     background: #EEE;
   }
   .pic{
-    background: url("../imgs/ROMA-web.jpg") no-repeat  -120px -900px;
+    /*background: url("../imgs/ROMA-web.jpg") no-repeat  -120px -900px;*/
+    background-image: url("http://img31.mtime.cn/pi/2014/12/25/154057.13894849_1000X1000.jpg");
+    background-size:cover;
+    background-position: center center;
     height:400px;
     width: 100%;
     opacity:0.3;

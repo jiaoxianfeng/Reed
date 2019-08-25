@@ -9,7 +9,7 @@
       <div style="height: 2px"></div>
       <v-img
         class="avatar-img"
-        src="../imgs/rotating_card_profile.png"
+        :src="self_img"
         height="163px"
         width="163px"
         position="center center"
@@ -17,8 +17,8 @@
 
       <v-card-title >
         <div class="user-name">
-          <p class="name-text">Logos</p>
-          <p class="signature-text">没有什么个性签名</p>
+          <p class="name-text">{{name}}</p>
+          <p class="signature-text">{{signature}}</p>
         </div>
 
       </v-card-title>
@@ -26,17 +26,17 @@
 
     <div class="text-center">
       <v-btn dark depressed large width="200" color="#CCCCCC" class="edit-btn">
-        <p style="font-size: 16px; margin-top: 5px">修改个人信息</p>
+        <p style="font-size: 16px; margin-top: 12px">修改个人信息</p>
       </v-btn>
     </div>
     <div class="text-center">
       <v-btn dark depressed large width="200" color="#CCCCCC" class="edit-btn">
-        <p style="font-size: 16px; margin-top: 5px">修改密码</p>
+        <p style="font-size: 16px; margin-top: 12px">修改密码</p>
       </v-btn>
     </div>
     <div class="text-center">
       <v-btn dark depressed large width="200" color="#CCCCCC" class="edit-btn">
-        <p style="font-size: 16px; margin-top: 5px">注销</p>
+        <p style="font-size: 16px; margin-top: 12px">注销</p>
       </v-btn>
     </div>
 
@@ -49,6 +49,17 @@
       data: () => ({
         show: false,
       }),
+      props: {
+        self_img:{
+          default: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg'
+        },
+        name: {
+          default: 'logos'
+        },
+        signature: {
+          default: '没有什么个性签名'
+        },
+      }
     }
 </script>
 

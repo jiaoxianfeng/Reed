@@ -53,7 +53,7 @@ export default {
 
   .right-content{
     display:-webkit-box;
-    -webkit-box-align:;/* 垂直居中 */
+    -webkit-box-align:center;/* 垂直居中 */
     -webkit-box-pack:center;/* 水平居中 */
   }
 
