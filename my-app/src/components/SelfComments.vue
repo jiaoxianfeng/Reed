@@ -4,14 +4,14 @@
     color="#ccc"
     max-width="400"
     elevation="5"
-    style="border-radius: 0"
+    style="border-radius: 0;"
   >
     <div class="topper">
       <v-card-actions style="max-width: 250px">
         <v-list-item class="grow">
           <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
             <v-img
-              class="elevation-6"
+              class="elevation-0"
               src="../imgs/rotating_card_profile.png"
             ></v-img>
           </v-list-item-avatar>
@@ -26,9 +26,28 @@
         <div v-if="toptag===2" class="essence">精华</div>
       </div>
     </div>
-    <v-card-text class="text-title font-weight-bold">
+    <v-card-text v-if="reply===0" class="text-title font-weight-bold">
       大家更喜欢什么风格的诗呢？
     </v-card-text>
+
+    <v-card v-if="reply===2" class="replay_content" elevation="0" tile>
+      <v-card-actions style="max-width: 200px;padding-top: 0px">
+        <v-list-item class="grow">
+          <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
+            <v-img
+              class="elevation-0"
+              src="../imgs/rotating_card_profile.png"
+            ></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content class="user-name">
+            <v-list-item-title class="user-name-text" style="color: #aaa;font-size: 20px">Evan You</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-card-actions>
+      <v-card-text class="text-content" style="color: #aaa">
+        "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
+      </v-card-text>
+    </v-card>
 
     <v-card-text class="text-content">
       "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
@@ -58,7 +77,7 @@
         data: () => ({
             //
         }),
-        props:["toptag"]
+        props:["toptag","reply"]
     }
 </script>
 
@@ -141,5 +160,13 @@
 
   .toptag{
     width: 100%;
+  }
+
+  .replay_content{
+    background: #eee;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

@@ -239,6 +239,7 @@
     word-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 10px;
   }
 
