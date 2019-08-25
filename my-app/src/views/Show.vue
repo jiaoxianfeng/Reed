@@ -12,6 +12,8 @@
       </v-col>
     </v-row>
     <Comments/>
+    <SelfComments/><SelfComments/>
+    <PostReply/>
   </div>
 </template>
 
@@ -20,12 +22,18 @@ import NavBar from '../components/NavBar';
 import Showcard from '../components/Showcard';
 import Comments from '../components/Comments-star';
 import ScoreBar from '../components/ScoreBar';
+import HistoryComment from '../components/HistoryComment';
+import PostReply from '../components/PostReply';
+import SelfComments from '../components/SelfComments';
 export default {
   components: {
     NavBar,
     Showcard,
     Comments,
     ScoreBar,
+    PostReply,
+    HistoryComment,
+    SelfComments,
   },
 };
 </script>

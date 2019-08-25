@@ -12,7 +12,7 @@
         <div class="left-back">
           <img src="../imgs/movie2.jpg" class="content-left">
         </div><br>
-        <ScoreBar />
+        <ScoreBar class="scorebar" />
       </v-col>
       <v-col cols="5" class="content-right">
         <v-card-text>
@@ -20,11 +20,11 @@
           <div class="actor-name">导演:奉俊昊</div><br>
           <div class="actor-name">主演:宋康昊 李善均 赵汝贞</div>
         </v-card-text>
-        <v-btn class="ma-2" color="white" dark large>
-          <v-icon size="35px" color="red">mdi-thumb-down</v-icon>
+        <v-btn class="ma-2" color="white" dark small>
+          <v-icon size="28px" color="red">mdi-thumb-down</v-icon>
         </v-btn>
-        <v-btn class="ma-2" color="white" dark large>
-          <v-icon size="35px" color="green">mdi-thumb-up</v-icon>
+        <v-btn class="ma-2" color="white" dark small>
+          <v-icon size="28px" color="green">mdi-thumb-up</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -51,14 +51,17 @@
     width: 100%;
     opacity:0.4; filter: alpha(opacity=60);
   }
+  .scorebar{
+    margin-left: 100px;
+  }
   .movie-name{
     margin-top: 20px;
-    font-size: 80px;
+    font-size: 60px;
   }
   .actor-name{
     color: aliceblue;
     margin-top: 30px;
-    font-size: 50px;
+    font-size: 40px;
   }
   .content-left{
     margin-top: 10px;
@@ -68,7 +71,7 @@
   .left-back{
     background-color: #EEE;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 200px;
     width: 420px;
   }
   .content-right{
