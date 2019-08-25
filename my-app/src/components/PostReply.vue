@@ -9,7 +9,9 @@
           background-color="white"
           color="black"
           label="你的回复"
-          rows="16"
+          hint="25字符及以上"
+          filled
+          auto-grow
         ></v-textarea>
         <v-btn depressed large color="#AEAEAE" dark width="160" class="reply-btn">
           发表
@@ -39,13 +41,13 @@
   }
   .reply-text{
     color: #AAAAAA;
-    font-size: 72px;
+    font-size: 48px;
     margin: 20px ;
   }
   .input-container{
     display:-webkit-box;
     -webkit-box-pack:center;/* 水平居中 */
-    height: 420px;
+    min-height: 150px;
     width: 100%;
     background-color: #CCCCCC;
   }
