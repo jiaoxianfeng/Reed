@@ -1,18 +1,15 @@
 package com.example.Controller;
 
-import com.example.Dataset.Like;
+import com.example.Database.Like;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.objenesis.SpringObjenesis;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.example.StaticFunc.Static.GetCurrentTime;
@@ -25,7 +22,7 @@ public class LikeController {
     @Value("${com.example.mongodb.collection.Like}")
     private String LIKE_COLLECTION_NAME;
 
-    @PostMapping(value = "/ChangeLikeStatus")
+    @PostMapping(value = "/Like/ChangeStatus")
     public String ChangeLikeStatus(@RequestBody Map<String,Object> map) {
         String account = map.get("account").toString();
         String postingId = map.get("postingId").toString();
@@ -41,7 +38,7 @@ public class LikeController {
         return "success add like";
     }
 
-    @PostMapping(value = "/CountLikeNum")
+    @PostMapping(value = "/Like/CountNum")
     public Long CountLikeNum(@RequestBody Map<String, Object> map) {
         String postingId = map.get("postingId").toString();
         Query query = new Query(Criteria.where("postingId").is(postingId));

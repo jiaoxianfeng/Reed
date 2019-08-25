@@ -1,4 +1,4 @@
-package com.example.Dataset;
+package com.example.Database;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -6,15 +6,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(value = "Like")
-public class Like {
+@Document(value = "Collection")
+public class Collection {
     @Id
     private ObjectId id;
     private String account;
     private String postingId;
-    private Date likeTime;
-
-    public Like() {}
+    private Date collectionTime;
 
     public ObjectId getId() {
         return id;
@@ -40,12 +38,12 @@ public class Like {
         this.postingId = postingId;
     }
 
-    public Date getLikeTime() {
-        return likeTime;
+    public Date getCollectionTime() {
+        return collectionTime;
     }
 
-    public void setLikeTime(Date likeTime) {
-        this.likeTime = likeTime;
+    public void setCollectionTime(Date collectionTime) {
+        this.collectionTime = collectionTime;
     }
 
     @Override
@@ -53,6 +51,7 @@ public class Like {
         return this.id + " " +
                 this.account + " " +
                 this.postingId + " " +
-                this.likeTime;
+                this.collectionTime;
     }
+
 }

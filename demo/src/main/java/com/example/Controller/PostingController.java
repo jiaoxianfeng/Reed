@@ -1,6 +1,6 @@
 package com.example.Controller;
 
-import com.example.Dataset.Posting;
+import com.example.Database.Posting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,14 +23,14 @@ public class PostingController {
     @Value("${com.example.mongodb.collection.Posting}")
     private String POSTING_COLLECTION_NAME;
 
-    @PostMapping(value = "/AddNewPosting")
+    @PostMapping(value = "/Posting/Add")
     public String AddPosting(@RequestBody Posting posting) {
         posting.setPostTime(GetCurrentTime());
         mongoTemplate.save(posting);
         return posting.getId().toString();
     }
 
-    @PostMapping(value = "/SearchPostingHistory")
+    @PostMapping(value = "/Posting/SearchHistory")
     public List<Posting> SearchPostingHistory(@RequestBody Map<String,Object> map) {
         String account = map.get("account").toString();
         Query query = new Query(Criteria.where("account").is(account));

@@ -1,6 +1,6 @@
 package com.example.Controller;
 
-import com.example.Dataset.Team;
+import com.example.Database.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;

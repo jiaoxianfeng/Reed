@@ -1,7 +1,7 @@
 package com.example.Controller;
 
 import com.example.StaticFunc.AesEncryptUtils;
-import com.example.Dataset.User;
+import com.example.Database.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,13 +23,13 @@ public class UserController {
     @Value("${com.example.mongodb.collection.User}")
     private String USER_COLLECTION_NAME;
 
-    @RequestMapping(value = "/FindAllUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/User/FindAll", method = RequestMethod.GET)
     public String FindAllUser() throws Exception {
         List<User> users = mongoTemplate.findAll(User.class);
         return AesEncryptUtils.encrypt(users.toString());
     }
 
-    @PostMapping(value = "/AddUser")
+    @PostMapping(value = "/User/Add")
     public String AddUser(@RequestBody User user) {
         if (!IsAccountExist(user.getAccount())) {
             user.setJoinTime(GetCurrentTime());
@@ -40,7 +40,7 @@ public class UserController {
         return "successful";
     }
 
-    @PostMapping(value = "/ModifyUserPassword")
+    @PostMapping(value = "/User/ModifyPassword")
     public String ModifyUserPassword(@RequestBody User user) {
         String account = user.getAccount();
         String password = user.getPassword();
@@ -49,7 +49,7 @@ public class UserController {
         return ModifyUserMulti(user);
     }
 
-    @PostMapping(value = "/ModifyUserUserName")
+    @PostMapping(value = "/User/ModifyUserName")
     public String ModifyUserUserName(@RequestBody User user) {
         String account = user.getAccount();
         String username = user.getUsername();
@@ -58,7 +58,7 @@ public class UserController {
         return ModifyUserMulti(user);
     }
 
-    @PostMapping(value = "/ModifyUserIntroduction")
+    @PostMapping(value = "/User/ModifyIntroduction")
     public String ModifyUserIntroduction(@RequestBody User user) {
         String account = user.getAccount();
         String introduction = user.getIntroduction();
@@ -67,7 +67,7 @@ public class UserController {
         return ModifyUserMulti(user);
     }
 
-    @PostMapping(value = "/ModifyUserGender")
+    @PostMapping(value = "/yUse/ModifrGender")
     public String ModifyUserGender(@RequestBody User user) {
         String account = user.getAccount();
         String gender = user.getGender();
