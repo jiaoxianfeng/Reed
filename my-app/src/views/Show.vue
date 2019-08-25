@@ -80,7 +80,8 @@ export default {
   .intro {
     color:#CCC;
     font-size:40px;
-    margin-left: 40%;
+    margin-left: 60%;
+    padding-left: auto;
     margin-top: 20px;
   }
 
