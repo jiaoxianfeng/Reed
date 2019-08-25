@@ -11,8 +11,8 @@ export default new Router({
       name: 'home',
       component: Home
       // path: '/',
-      // name: 'forum',
-      // component: Forum
+      // name: 'bmhome',
+      // component: BMHome
     },
     {
       path: '/about',
@@ -38,5 +38,13 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "selfinfo" */ './views/SelfInfo.vue')
     },
+    {
+      path: '/bmhome',
+      name: 'bmhome',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "bmhome" */ './views/BMHome.vue')
+    }
   ]
 })

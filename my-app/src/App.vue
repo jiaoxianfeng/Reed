@@ -17,6 +17,7 @@ import TeamManage from "./components/TeamManage"
 import Post from "./components/Post"
 import PostReply from "./components/PostReply"
 import ScoreBar from "./components/ScoreBar"
+import WonderfulComment from "./components/WonderfulComment"
 
 export default {
   name: 'App',
@@ -31,7 +32,8 @@ export default {
     HistoryComment,
     PostReply,
     SelfComments,
-    ScoreBar
+    ScoreBar,
+    WonderfulComment
   },
   data: () => ({
     hot: '今日热门'

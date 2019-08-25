@@ -41,8 +41,21 @@
 
         <Comments />
 
+        <div style="width: 100px"></div>
+        <Comments />
+
+        <Comments />
+
+        <div style="width: 100px"></div>
+
+        <Comments />
+
+        <div style="width: 100px"></div>
+        <Comments />
+
 
       </v-row>
+      <div style="height: 100px"></div>
 
     </div>
 
@@ -50,7 +63,6 @@
 </template>
 
 <script>
-import NavBar from '../components/NavBar'
 import SegText from '../components/SegText'
 import Comments from '../components/Comments'
 import HistoryComment from '../components/HistoryComment'
@@ -65,7 +77,6 @@ export default {
     }
   },
   components: {
-    NavBar,
     SegText,
     Comments,
     HistoryComment
@@ -116,6 +127,7 @@ export default {
   }
 
   .segtext-hot{
+    margin-top: 65px;
   }
 
   .comments{
