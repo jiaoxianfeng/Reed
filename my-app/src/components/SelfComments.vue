@@ -6,21 +6,26 @@
     elevation="5"
     style="border-radius: 0"
   >
+    <div class="topper">
+      <v-card-actions style="max-width: 250px">
+        <v-list-item class="grow">
+          <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
+            <v-img
+              class="elevation-6"
+              src="../imgs/rotating_card_profile.png"
+            ></v-img>
+          </v-list-item-avatar>
 
-    <v-card-actions>
-      <v-list-item class="grow">
-        <v-list-item-avatar tile color="grey darken-3" style="width: 40px;height: 40px">
-          <v-img
-            class="elevation-6"
-            src="../imgs/rotating_card_profile.png"
-          ></v-img>
-        </v-list-item-avatar>
-
-        <v-list-item-content class="user-name">
-          <v-list-item-title class="user-name-text">Evan You</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card-actions>
+          <v-list-item-content class="user-name">
+            <v-list-item-title class="user-name-text">Evan You</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-card-actions>
+      <div class="toptag">
+        <div v-if="toptag===1" class="topped">置顶</div>
+        <div v-if="toptag===2" class="essence">精华</div>
+      </div>
+    </div>
     <v-card-text class="text-title font-weight-bold">
       大家更喜欢什么风格的诗呢？
     </v-card-text>
@@ -53,6 +58,7 @@
         data: () => ({
             //
         }),
+        props:["toptag"]
     }
 </script>
 
@@ -107,5 +113,33 @@
   .comment-bottom{
     color: white;
     margin-right: 0px;
+  }
+
+  .topped,
+  .essence{
+    height: 30px;
+    font-size: 20px;
+    border-bottom-left-radius: 10px;
+    width: 100px;
+    text-align: center;
+    float: right;
+  }
+
+  .topped{
+    background: #aaa;
+    color: #fff;
+  }
+  .essence{
+    background: #fff;
+    color: #aaa;
+  }
+
+  .topper{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .toptag{
+    width: 100%;
   }
 </style>
