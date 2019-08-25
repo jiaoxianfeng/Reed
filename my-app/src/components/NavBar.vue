@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="border-radius: 0px">
 
     <v-tabs
       background-color="grey "
@@ -7,6 +7,7 @@
       next-icon
       color="white"
       class="nav-container"
+      style="border-radius: 0px"
     >
       <img src= "../imgs/text-only -white.png" class="logo-header">
       <v-tab><router-link class="link-text" to="/">主页</router-link></v-tab>
@@ -14,18 +15,19 @@
       <v-tab><router-link class="link-text" to="/selfinfo">影视</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/forum">小组</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
       <v-text-field
         class="mx-xl-n7"
         flat
         hide-details
         label="Search"
         solo-inverted
+        style="margin-top: 2px;margin-bottom: 2px;margin-right: 5px;border-radius: 0px"
       ></v-text-field>
     </v-tabs>
 

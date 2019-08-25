@@ -3,10 +3,6 @@
     <NavBar/>
     <router-view/>
   </v-app>
-  <!--<v-app>-->
-    <!--<UserInfo />-->
-  <!--</v-app>-->
-
 </template>
 
 <script>
@@ -20,7 +16,7 @@ import UserInfo from "./components/UserInfo"
 import TeamManage from "./components/TeamManage"
 import Post from "./components/Post"
 import PostReply from "./components/PostReply"
-
+import ScoreBar from "./components/ScoreBar"
 
 export default {
   name: 'App',
@@ -34,7 +30,8 @@ export default {
     Post,
     HistoryComment,
     PostReply,
-    SelfComments
+    SelfComments,
+    ScoreBar
   },
   data: () => ({
     hot: '今日热门'
