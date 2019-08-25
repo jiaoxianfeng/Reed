@@ -2,6 +2,7 @@
   <div>
     <NavBar/>
     <Showcard/>
+
     <v-row >
       <v-col cols="4" class="intro-left">
         <div class="intro">简介</div>

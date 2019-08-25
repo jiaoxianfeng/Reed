@@ -37,7 +37,7 @@
           return 0
       },
       getcolor: function() {
-        if(this.score>0)
+        if(this.score > 0)
           return '#8BC34A'
         else
           return '#E51C23'

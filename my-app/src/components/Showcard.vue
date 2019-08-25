@@ -4,15 +4,15 @@
     color="#CCC"
     height="800px"
   >
-    <div class="dimback">
+    <v-row class="dimback">
       <img class="pic" >
-    </div>
+    </v-row>
     <v-row no-gutters>
       <v-col cols="5">
         <div class="left-back">
           <img src="../imgs/movie2.jpg" class="content-left">
         </div><br>
-        <ScoreBar/>
+        <ScoreBar />
       </v-col>
       <v-col cols="5" class="content-right">
         <v-card-text>
@@ -20,11 +20,11 @@
           <div class="actor-name">导演:奉俊昊</div><br>
           <div class="actor-name">主演:宋康昊 李善均 赵汝贞</div>
         </v-card-text>
-        <v-btn icon color="red">
-          <v-icon>mdi-thumb-up</v-icon>
+        <v-btn class="ma-2" color="white" dark large>
+          <v-icon size="35px" color="red">mdi-thumb-down</v-icon>
         </v-btn>
-        <v-btn icon color="green">
-          <v-icon>mdi-thumb-down</v-icon>
+        <v-btn class="ma-2" color="white" dark large>
+          <v-icon size="35px" color="green">mdi-thumb-up</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -49,7 +49,6 @@
     background: url(../imgs/movie2.jpg) no-repeat  -140px -20px;
     height:400px;
     width: 100%;
-    margin-top: 11px;
     opacity:0.4; filter: alpha(opacity=60);
   }
   .movie-name{
