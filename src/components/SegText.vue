@@ -1,0 +1,34 @@
+<template>
+<div class="space">
+  <p class="space-text">{{text}}</p>
+</div>
+</template>
+
+<script>
+export default {
+  name: 'SegText',
+  data () {
+    return {
+
+    }
+  },
+  props:[
+    'text'
+  ]
+}
+</script>
+
+<style scoped>
+  .space{
+    height: 160px;
+    background-color: #AAAAAA;
+    display:-webkit-box;
+    -webkit-box-align:center;/* 垂直居中 */
+    font-family: "Microsoft YaHei" ! important;
+  }
+  .space-text{
+    font-size: 70px;
+    color: white;
+    margin-left: 80px;
+  }
+</style>

@@ -1,0 +1,63 @@
+<template>
+  <div >
+    <p class="content-title">推荐</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :height="height" :width="width"/>
+      </div>
+    </div>
+    <p class="content-title">热门</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :height="height" :width="width"/>
+      </div>
+    </div>
+    <p class="content-title">最新</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :height="height" :width="width"/>
+      </div>
+    </div>
+    <p class="content-title">精彩评论</p>
+    <v-row no-gutters>
+      <v-col>
+        <WonderfulComment />
+      </v-col>
+      <v-col>
+        <WonderfulComment />
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col>
+        <WonderfulComment />
+      </v-col>
+      <v-col>
+        <WonderfulComment />
+      </v-col>
+    </v-row>
+    <div style="height: 200px"></div>
+  </div>
+</template>
+
+<script>
+  import HistoryComment from '../components/HistoryComment'
+  import WonderfulComment from '../components/WonderfulComment'
+  export default {
+    name: "BMHome",
+    components: {
+      HistoryComment,
+      WonderfulComment
+    },
+  }
+</script>
+
+<style scoped>
+.content-title{
+  margin: 40px;
+  font-size: 72px;
+  color:#AAAAAA;
+}
+.hot-content{
+  width: 1060px;
+}
+</style>
