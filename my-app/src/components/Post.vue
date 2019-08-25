@@ -53,6 +53,8 @@
 <style scoped>
   .post-container {
     background-color: #CCCCCC;
+    padding-left: 50px;
+    padding-right: 50px;
   }
   .post-avatar{
   }
@@ -78,18 +80,19 @@
   }
   .user-name{
     color:white;
-    font-size: 44px;
+    font-size: 32px;
     margin-top: 45px;
     font-family: "Microsoft YaHei" ! important;
   }
   .post-name{
-    margin-top: -5px;
+    margin-top: -20px;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 28px;
     font-family: "Microsoft YaHei" ! important;
   }
   .post-content{
-    font-size: 24px;
+    margin-top: -10px;
+    font-size: 16px;
     font-family: "Microsoft YaHei" ! important;
   }
 
