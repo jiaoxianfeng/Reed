@@ -11,7 +11,7 @@
     <v-row class="dimback">
       <img class="pic">
     </v-row>
-    <v-row no-gutters style="width: 1000px">
+    <v-row no-gutters style="width: 1000px;position:relative;">
       <v-col cols="3" style="margin-left: 200px">
         <div class="left-back">
           <img src="../imgs/ROMA-web.jpg" class="content-left">
@@ -54,10 +54,10 @@
     background: #EEE;
   }
   .pic{
-    background: url("../imgs/ROMA-web.jpg") no-repeat  -140px -20px;
+    background: url("../imgs/ROMA-web.jpg") no-repeat  -120px -900px;
     height:400px;
     width: 100%;
-    opacity:0.4;
+    opacity:0.3;
   }
   .scorebar{
 
@@ -85,6 +85,9 @@
     margin-top: -130px;
     width: 200px;
     padding: 5px;
+    z-index: auto;
+
+    display: inline-flex;
   }
   .content-right{
     width: 70%;
