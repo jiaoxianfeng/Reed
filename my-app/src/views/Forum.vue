@@ -1,10 +1,18 @@
 <template>
 <div>
   <Post />
-  <v-row>
-    <SelfComments :toptag="1" style="width: 400px;" />
-    <SelfComments :toptag="2" style="width: 400px;" />
-    <SelfComments style="width: 400px;" />
+  <v-row no-gutters>
+    <v-col>
+      <SelfComments :reply="0" :toptag="1" style="width: 400px;" />
+      <SelfComments :reply="1" style="width: 400px;" />
+    </v-col>
+    <v-col>
+      <SelfComments :reply="0" :toptag="2" style="width: 400px;" />
+      <SelfComments :reply="2" style="width: 400px;" />
+    </v-col>
+    <v-col>
+      <SelfComments :reply="0" style="width: 400px;" />
+    </v-col>
   </v-row>
 
   <PostReply />
