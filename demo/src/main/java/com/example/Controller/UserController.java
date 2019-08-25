@@ -40,6 +40,19 @@ public class UserController {
         return "successful";
     }
 
+    @PostMapping(value = "/User/Login")
+    public String Login(@RequestBody User user) {
+        if (!IsAccountExist(user.getAccount()))
+            return "User Not Exist";
+        else {
+            User temp = QueryUserByAccount(user.getAccount());
+            if (temp.getPassword().equals(user.getPassword()))
+                return "successful";
+            else
+                return "wrong password";
+        }
+    }
+
     @PostMapping(value = "/User/ModifyPassword")
     public String ModifyUserPassword(@RequestBody User user) {
         String account = user.getAccount();
@@ -107,16 +120,16 @@ public class UserController {
     }
 
     public boolean IsAccountExist(String Account) {
-        Map map = QueryUserByAccount(Account);
-        if (map == null)
+        User user = QueryUserByAccount(Account);
+        if (user == null)
             return false;
         else
             return true;
     }
 
-    public Map QueryUserByAccount(String Account) {
+    public User QueryUserByAccount(String Account) {
         Query query = new Query(Criteria.where("account").is(Account));
-        return mongoTemplate.findOne(query,Map.class,USER_COLLECTION_NAME);
+        return mongoTemplate.findOne(query,User.class,USER_COLLECTION_NAME);
     }
 
 }
