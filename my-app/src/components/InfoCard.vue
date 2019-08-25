@@ -32,7 +32,7 @@
 
       </div>
       <div class="negative">
-        
+
         <div class="contains_outer">
             <div class="bar_outer">
               <v-icon size="16px" style="color:#fff">mdi-thumb-down</v-icon>
@@ -79,19 +79,19 @@
       red_width: function() {
         if(this.score<0)
           return - this.score + 'px'
-        else 
+        else
           return 0
       },
       green_width: function() {
         if(this.score>0)
           return this.score + 'px'
-        else 
+        else
           return 0
       },
       getcolor: function() {
         if(this.score>0)
           return '#8BC34A'
-        else 
+        else
           return '#FE5E8E'
       }
     }
@@ -235,6 +235,9 @@
     font-size: 12px;
     color: #fff;
     height: 240px;
+    max-width: 140px;
+    word-wrap: break-word;
+    word-break: break-all;
     overflow: hidden;
     margin-bottom: 10px;
   }
@@ -244,7 +247,8 @@
     flex-direction: column;
     padding-left: 10px;
     width: 160px;
-    max-height: 236px;
+    max-height: 240px;
+    white-space: normal;
   }
 
   .seen{
