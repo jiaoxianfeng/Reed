@@ -15,12 +15,12 @@
       <v-tab><router-link class="link-text" to="/selfinfo">影视</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/forum">小组</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
-      <v-tab></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
+      <v-tab disable="true"></v-tab>
       <v-text-field
         class="mx-xl-n7"
         flat
