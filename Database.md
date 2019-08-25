@@ -40,13 +40,6 @@
 * 发布时间(postTime)         Date
 
 
-## 赞(Like)
-
-* 赞编号(id) 				 ObjectId
-* 点赞者账户(account) 		 String
-* 被点赞帖子编号(postingId)  String
-* 点赞时间(likeTime) 		 Date
-
 ## 电影
 
 * 电影编号(id)               String    
@@ -95,3 +88,19 @@
 * 团队成员权限(power)        String
 * 团队名称(teamName)         String
 * 团队创建时间(createTime)   Date
+
+
+## 赞(Like)
+
+* 赞编号(id) 				 ObjectId
+* 点赞者账户(account) 		 String
+* 被点赞帖子编号(postingId)  String
+* 点赞时间(likeTime) 		 Date
+
+
+## 收藏(Collection)
+
+* 收藏编号(id)               ObjectId
+* 收藏者账户(account)        String
+* 被收藏帖子编号(postingId)  String 
+* 收藏时间(collectionTime)   Date
