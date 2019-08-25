@@ -5,9 +5,10 @@
         <img src= "../imgs/full-logo.png" class="logo-left">
       </v-col>
       <v-col cols="5" class="right-content">
-        <div>
+        <form @submit.prevent="login">
           <p class="b-text">人，是一根会思考的苇草</p>
           <p class="s-text">挖掘更多思想...</p>
+
           <v-text-field
           v-model="last"
           label="Username"
@@ -20,8 +21,15 @@
             filled
           ></v-text-field>
 
-          <v-btn block color="secondary" dark>Login / Register</v-btn>
-        </div>
+          <v-text-field
+            v-if="register"
+            v-model="last"
+            label="Re-enter Password"
+            filled
+          ></v-text-field>
+
+          <v-btn v-on:click="login" block color="secondary" dark>Login / Register</v-btn>
+        </form>
       </v-col>
     </v-row>
     <SegText :text="hot" class="segtext-hot"/>
@@ -73,7 +81,13 @@ export default {
       hot: '今日热门',
       topic: '今日话题',
       height: '560px',
-      width: '310px'
+      width: '310px',
+      register: false
+    }
+  },
+  methods: {
+    login () {
+      this.register = !this.register
     }
   },
   components: {

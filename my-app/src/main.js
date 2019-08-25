@@ -6,8 +6,10 @@ import vuetify from './plugins/vuetify'
 import Progress from 'vue-multiple-progress'
 import '@mdi/font/css/materialdesignicons.css'
 import Vuetify from 'vuetify/lib'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-
+Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 Vue.use(Progress)
 
