@@ -43,13 +43,13 @@ public class UserController {
     @PostMapping(value = "/User/Login")
     public Object Login(@RequestBody User user) {
         if (!IsAccountExist(user.getAccount()))
-            return "User Not Exist";
+            return 0;
         else {
             User temp = QueryUserByAccount(user.getAccount());
             if (temp.getPassword().equals(user.getPassword()))
                 return temp;
             else
-                return "wrong password";
+                return 1;
         }
     }
 
