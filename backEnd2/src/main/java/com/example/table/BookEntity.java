@@ -1,9 +1,13 @@
 package com.example.table;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 @Document(collection = "Book")
 public class BookEntity{
+    @Id
+    private ObjectId id;
     private String bookName;
     private String author;
     private String publisher;
@@ -14,7 +18,32 @@ public class BookEntity{
     private String ISBN;
     private String price;
     private String translator;
+    private String intro;
+    private int[] score;
+    public int[] getScore() {
+        return score;
+    }
 
+    public void setScore(int[] score) {
+        this.score = score;
+    }
+
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
     public String getBookName() {
         return bookName;
