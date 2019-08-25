@@ -24,6 +24,13 @@
         </div>
       </v-col>
     </v-row>
+    <SegText :text="hot" class="segtext-hot"/>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :height="height" :width="width"/>
+        <HistoryComment :height="height" :width="width"/>
+      </div>
+    </div>
     <SegText :text="topic" class="segtext-hot"/>
     <div class="comments">
       <v-row
@@ -46,23 +53,30 @@
 import NavBar from '../components/NavBar'
 import SegText from '../components/SegText'
 import Comments from '../components/Comments'
+import HistoryComment from '../components/HistoryComment'
 
 export default {
   data () {
     return {
       hot: '今日热门',
-      topic: '今日话题'
+      topic: '今日话题',
+      height: '560px',
+      width: '310px'
     }
   },
   components: {
     NavBar,
     SegText,
-    Comments
+    Comments,
+    HistoryComment
   },
 };
 </script>
 
 <style scoped>
+  .hot-content{
+    width: 1060px;
+  }
 
   .left-content{
   }
@@ -102,7 +116,6 @@ export default {
   }
 
   .segtext-hot{
-    margin-top: 62px;
   }
 
   .comments{
