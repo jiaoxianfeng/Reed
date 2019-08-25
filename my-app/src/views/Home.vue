@@ -50,7 +50,7 @@ import Comments from '../components/Comments'
 export default {
   data () {
     return {
-      hot: '今日热点',
+      hot: '今日热门',
       topic: '今日话题'
     }
   },

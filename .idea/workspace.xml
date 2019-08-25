@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1c65071-74eb-4ba1-8cc8-de9f06d2173f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/ScoreBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/InfoCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/InfoCard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/NavBar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/views/Home.vue" afterDir="false" />
     </list>
@@ -23,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+              <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding>
                 <element signature="e#147#187#0" expanded="true" />
               </folding>
@@ -62,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="26" />
+            <state relative-caret-position="216">
+              <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#v-row#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -101,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/NavBar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state relative-caret-position="243">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -158,18 +155,18 @@
         <option value="$PROJECT_DIR$/my-app/src/components/UserInfo.vue" />
         <option value="$PROJECT_DIR$/my-app/src/components/Post.vue" />
         <option value="$PROJECT_DIR$/my-app/src/router.js" />
-        <option value="$PROJECT_DIR$/my-app/src/views/Home.vue" />
         <option value="$PROJECT_DIR$/my-app/src/views/SelfInfo.vue" />
         <option value="$PROJECT_DIR$/my-app/src/views/Forum.vue" />
-        <option value="$PROJECT_DIR$/my-app/src/components/NavBar.vue" />
         <option value="$PROJECT_DIR$/my-app/src/App.vue" />
+        <option value="$PROJECT_DIR$/my-app/src/components/NavBar.vue" />
+        <option value="$PROJECT_DIR$/my-app/src/views/Home.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-14" />
-    <option name="width" value="1225" />
-    <option name="height" value="1514" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1208" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -250,7 +247,7 @@
       <workItem from="1566627890373" duration="11163000" />
       <workItem from="1566644921268" duration="4534000" />
       <workItem from="1566657692897" duration="5159000" />
-      <workItem from="1566697020818" duration="1042000" />
+      <workItem from="1566697020818" duration="2065000" />
     </task>
     <task id="LOCAL-00001" summary="add comments">
       <created>1566618477236</created>
@@ -326,13 +323,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33326000" />
+    <option name="totallyTimeSpent" value="34349000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="974" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49911505" visible="true" weight="0.15455747" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49911505" visible="true" weight="0.15455747" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50088495" side_tool="true" weight="0.24966975" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -344,8 +341,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.30047506" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993395" visible="true" weight="0.30047506" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006605" side_tool="true" visible="true" weight="0.30047506" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32897863" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -366,7 +363,8 @@
     <MESSAGE value="addScoreBar" />
     <MESSAGE value="minoredit" />
     <MESSAGE value="Merge branch 'frontEnd' of https://github.com/XianfengJiao/Reed into frontEnd&#10;&#10;# Conflicts:&#10;#&#9;my-app/src/App.vue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'frontEnd' of https://github.com/XianfengJiao/Reed into frontEnd&#10;&#10;# Conflicts:&#10;#&#9;my-app/src/App.vue" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package-lock.json" />
@@ -490,16 +488,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#v-row#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -541,19 +529,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/NavBar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding>
             <element signature="e#147#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/NavBar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/views/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#v-row#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
