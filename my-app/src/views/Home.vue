@@ -12,14 +12,12 @@
           v-model="last"
           label="Username"
           filled
-          shaped
           class="username"></v-text-field>
 
           <v-text-field
             v-model="last"
             label="Password"
             filled
-            shaped
           ></v-text-field>
 
           <v-btn block color="secondary" dark>Login / Register</v-btn>

@@ -17,6 +17,7 @@ import Comments from "./components/Comments"
 import UserInfo from "./components/UserInfo"
 import TeamManage from "./components/TeamManage"
 import Post from "./components/Post"
+import ScoreBar from "./components/ScoreBar"
 
 export default {
   name: 'App',
@@ -27,7 +28,8 @@ export default {
     Comments,
     UserInfo,
     TeamManage,
-    Post
+    Post,
+      ScoreBar
   },
   data: () => ({
     hot: '今日热门'
