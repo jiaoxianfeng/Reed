@@ -2,7 +2,7 @@
   <v-card style="border-radius: 0px">
 
     <v-tabs
-      background-color="grey "
+      background-color="secondary"
       dark
       next-icon
       color="white"
@@ -22,10 +22,9 @@
         hide-details
         label="Search"
         solo-inverted
-        style="margin-top: 2px;margin-bottom: 2px;margin-right: 5px;border-radius: 0px"
+        style="margin-right: 10px;border-radius: 3px;height: 30px"
       ></v-text-field>
     </v-tabs>
-
   </v-card>
 </template>
 
