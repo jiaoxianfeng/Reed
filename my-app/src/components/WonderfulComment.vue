@@ -26,7 +26,7 @@
         <p class="movie-comment">
           {{content}}
         </p>
-        <v-list-item class="grow">
+        <v-list-item class="grow" style="margin-top: 30px">
 
           <v-row
             align="center"
@@ -73,9 +73,8 @@ export default {
   .wc-container{
     background-color: #CACACA;
     height: 190px;
-    width: 678px;
-    margin: 30px;
-
+    width: 500px;
+    margin: 20px;
   }
   .movie-img-container{
     display:-webkit-box;
@@ -92,7 +91,7 @@ export default {
   .movie-comment{
     margin-left: 14px;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: "Microsoft YaHei" ! important;
   }
   .thumb-up{

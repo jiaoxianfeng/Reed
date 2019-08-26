@@ -19,7 +19,7 @@
       </div>
     </div>
     <p class="content-title">精彩评论</p>
-    <v-row justify="start" >
+    <v-row justify="start" style="margin-left: 10%;margin-right: 10%">
       <v-col v-for="(data, index) in wonderfulComments"
              :key="index"
              md="6"
@@ -54,8 +54,10 @@
 
 <style scoped>
 .content-title{
-  margin: 40px;
-  font-size: 72px;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 56px;
   color:#AAAAAA;
 }
 .hot-content{
