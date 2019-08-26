@@ -8,7 +8,7 @@
                 color="grey"
             >
                 <p class=" SearchMenuTitle">搜索结果</p>
-                <v-tab v-for="i in tabs" :key="i" :href="`#tab-${i}`">
+                <v-tab v-for="i in tabs" :key="i" :href="`#tab-${i}`" @click="cli(i)">
                     {{ tabNames[i-1] }}
                 </v-tab>
                 <v-tabs-slider></v-tabs-slider>
@@ -20,11 +20,12 @@
         </v-row>
         <v-tabs-items v-model="tab">
             <v-tab-item
-                    v-for="i in tabs"
-                    :key="i"
-                    :value="'tab-' + i"
+              v-for="i in tabs"
+              :key="i+3"
+              :value="'tab-' + i"
             >
                 <SearchBar
+
                         v-for="bar in SearchBars[i-1]"
                         :key="bar"
                         :image="bar['image']"
@@ -34,26 +35,37 @@
                 ></SearchBar>
             </v-tab-item>
         </v-tabs-items>
+      <p>{{this.$store.state.searchResults}}</p>
+      <Pagination></Pagination>
     </div>
 </template>
 
 <script>
-    import SearchBar from "./SearchBar";
-    export default {
-        name: "SearchMenu",
-        components: {
-            SearchBar,
-        },
-        data () {
-            return {
-                tab: null,
-                tabs: 3,
-                tabNames: ["书籍","影视","小组"],
-            }
-        },
-        props:['SearchBars'],
-
+import SearchBar from "./SearchBar";
+import Pagination from "./Pagination";
+export default {
+  name: "SearchMenu",
+  components: {
+    SearchBar,
+    Pagination
+  },
+  data () {
+    return {
+      tab: null,
+      tabs: 3,
+      tabNames: ["书籍","影视","小组"],
     }
+  },
+  props:['SearchBars'],
+  mounted() {
+    this.$store.commit('getSearchResult');
+  },
+  methods:{
+    cli:function(i){
+      console.log(i);
+    }
+  }
+}
 </script>
 
 <style scoped>

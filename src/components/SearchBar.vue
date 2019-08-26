@@ -24,10 +24,14 @@
 </template>
 
 <script>
-    export default {
-        name: "SearchBar",
-        props:['image','title','fstl','scdl','score'],
-    }
+import ScoreBar from "./ScoreBar"
+export default {
+  components: {
+    ScoreBar
+  },
+  name: "SearchBar",
+  props:['image','title','fstl','scdl','score'],
+}
 </script>
 
 <style scoped>

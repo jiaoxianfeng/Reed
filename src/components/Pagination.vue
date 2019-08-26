@@ -2,10 +2,9 @@
     <div class="text-center">
         <v-row justify="center" align="center">
             <v-pagination
-                    v-model="page"
                     :circle="circle"
                     :disabled="disabled"
-                    :length="length"
+                    :length="this.$store.state.search.searchResultsPageNum"
                     :next-icon="nextIcon"
                     :prev-icon="prevIcon"
                     :page="page"
@@ -16,20 +15,28 @@
 </template>
 
 <script>
-    export default {
-        name: "Pagination",
-        data () {
-            return {
-                circle: false,
-                disabled: false,
-                length: 20,
-                nextIcon: 'arrow_forward',
-                prevIcon: 'navigate_before',
-                page: 1,
-                totalVisible: 10,
-            }
-        },
+export default {
+  name: "Pagination",
+  data () {
+    return {
+      circle: false,
+      disabled: false,
+      nextIcon: 'arrow_forward',
+      prevIcon: 'navigate_before',
+      totalVisible: 10,
     }
+  },
+  computed: {
+    page:{
+      get(){
+        return this.$store.state.currentPage
+      },
+      set(newVal) {
+        this.$store.commit('handleCurrentPage', newVal)
+      }
+    },
+  },
+}
 </script>
 
 <style scoped>
