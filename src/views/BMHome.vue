@@ -1,5 +1,6 @@
 <template>
   <div >
+    <p>{{this.$store.state.datas}}</p>
     <p class="content-title">推荐</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
@@ -19,19 +20,11 @@
       </div>
     </div>
     <p class="content-title">精彩评论</p>
-    <v-row no-gutters>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-    </v-row>
-    <v-row no-gutters>
-      <v-col>
-        <WonderfulComment />
-      </v-col>
-      <v-col>
+    <v-row justify="start" style="margin-left: 10%;margin-right: 10%">
+      <v-col v-for="(data, index) in wonderfulComments"
+             :key="index"
+             md="6"
+      >
         <WonderfulComment />
       </v-col>
     </v-row>
@@ -42,19 +35,40 @@
 <script>
   import HistoryComment from '../components/HistoryComment'
   import WonderfulComment from '../components/WonderfulComment'
+
+
   export default {
     name: "BMHome",
+    data () {
+      return {
+        wonderfulComments:[
+          {},
+          {},
+          {}
+        ]
+      }
+    },
     components: {
       HistoryComment,
       WonderfulComment
     },
+    methods:{
+        getBook(){
+            this.$store.commit('getBook');
+        }
+    },
+    mounted() {
+      this.getBook();
+    }
   }
 </script>
 
 <style scoped>
 .content-title{
-  margin: 40px;
-  font-size: 72px;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 56px;
   color:#AAAAAA;
 }
 .hot-content{

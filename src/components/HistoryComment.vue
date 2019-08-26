@@ -11,11 +11,12 @@
       show-arrows
     >
       <v-slide-item
-        v-for="n in 10"
-        :key="n"
+        v-for="(data, index) in card_content"
+        :key="index"
         v-slot:default="{ active, toggle }"
       >
-        <InfoCard />
+        <InfoCard :poster_img="card_content.card_content" :name="card_content.name" :score="card_content.score" :director="card_content.director"
+        :Starring="card_content.Starring" :duration="card_content.duration" :brief="card_content.brief" :looked="card_content.looked"/>
       </v-slide-item>
     </v-slide-group>
   </v-sheet>
@@ -31,10 +32,20 @@ export default {
   components: {
     InfoCard
   },
-  props:[
-    'height',
-    'width'
-  ]
+  props: {
+    card_content:{
+      default: [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+  }
 }
 </script>
 

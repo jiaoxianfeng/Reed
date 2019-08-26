@@ -4,7 +4,7 @@
       <div class="positive">
         <v-card class="vcard">
           <v-img
-            src="../imgs/ROMA-web.jpg"
+            :src="poster_img"
             :aspect-ratio="1"
             max-width="160"
             min-width="140"
@@ -12,7 +12,7 @@
           >
           </v-img>
           <v-card-title style="margin-top:-10px;font-size:28px">
-            <div class="title font-weight-regular grey--text">Roma
+            <div class="title font-weight-regular grey--text">{{name}}
             </div>
           </v-card-title>
           <div class="bar_outer">
@@ -32,7 +32,7 @@
 
       </div>
       <div class="negative">
-        
+
         <div class="contains_outer">
             <div class="bar_outer">
               <v-icon size="16px" style="color:#fff">mdi-thumb-down</v-icon>
@@ -50,11 +50,11 @@
             <div class="score_num" :style="{color: getcolor}">{{score}}%</div>
             <div class="contains">
               <font style="color:#ccc">导演: </font>{{director}}<br/>
-              <font style="color:#ccc">主演: </font>{{filmstar}}<br/>
-              <font style="color:#ccc">时长: </font>{{length}}分钟<br/><br/>
-              {{breifing}}
+              <font style="color:#ccc">主演: </font>{{Starring}}<br/>
+              <font style="color:#ccc">时长: </font>{{duration}}分钟<br/><br/>
+              {{brief}}
               </div>
-            <div class="seen">{{people_seen}}人看过</div>
+            <div class="seen">{{looked}}人看过</div>
         </div>
       </div>
     </div>
@@ -62,36 +62,60 @@
 </template>
 
 <script>
-  import { mdiAccount } from '@mdi/js'
   export default {
     name: 'InfoCard',
     data: () => ({
-      svgPath: mdiAccount,
-      score: 37.6,
-      img_src: "../imgs/ROMA-web.jpg",
-      director: "阿方索·卡隆",
-      filmstar: "雅利扎·阿巴里西奥",
-      length: 135,
-      breifing: "故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？",
-      people_seen: 1024,
+      // score: 37.6,
+      // img_src: "https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      // director: "阿方索·卡隆",
+      // filmstar: "雅利扎·阿巴里西奥",
+      // length: 135,
+      // breifing: "故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？",
+      // people_seen: 1024,
     }),
+    props: {
+      poster_img:{
+        default: 'https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg'
+      },
+      name:{
+        default: 'Roma'
+      },
+      score:{
+        default: 37.6
+      },
+      director:{
+        default: '阿方索·卡隆'
+      },
+      Starring:{
+        default: '雅利扎·阿巴里西奥'
+      },
+      duration:{
+        default: 135
+      },
+      brief:{
+        default: '故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？'
+      },
+      looked:{
+        default: '1024'
+      },
+    },
     computed: {
       red_width: function() {
         if(this.score<0)
           return - this.score + 'px'
-        else 
+        else
           return 0
       },
       green_width: function() {
         if(this.score>0)
           return this.score + 'px'
-        else 
+        else
           return 0
       },
       getcolor: function() {
         if(this.score>0)
           return '#8BC34A'
-        else 
+        else
           return '#FE5E8E'
       }
     }
@@ -235,7 +259,11 @@
     font-size: 12px;
     color: #fff;
     height: 240px;
+    max-width: 140px;
+    word-wrap: break-word;
+    word-break: break-all;
     overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 10px;
   }
 
@@ -244,7 +272,8 @@
     flex-direction: column;
     padding-left: 10px;
     width: 160px;
-    max-height: 236px;
+    max-height: 240px;
+    white-space: normal;
   }
 
   .seen{
