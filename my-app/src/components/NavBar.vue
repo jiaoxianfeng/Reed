@@ -13,7 +13,7 @@
       <v-tab aria-selected="false"><router-link class="link-text" to="/">主页</router-link></v-tab>
       <v-tab aria-selected="true"><router-link class="link-text" to="/bmhome">书籍</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/bmshow">影视</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/forum">小组</router-link></v-tab>
+      <v-tab><router-link class="link-text" to="/group">小组</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
       <div style="width: 42%"></div>
       <v-text-field
@@ -23,6 +23,7 @@
         label="Search"
         solo-inverted
         style="margin-right: 10px;border-radius: 3px;height: 30px"
+        @keyup.enter="submit"
       ></v-text-field>
     </v-tabs>
   </v-card>
@@ -46,6 +47,11 @@ export default {
       tabs: 3
     }
   },
+  methods:{
+    submit: function(){
+      this.$router.push({path:'/search'})
+    }
+  }
 }
 </script>
 

@@ -6,8 +6,9 @@
     elevation="0"
   >
     <v-img
-      src="../imgs/tim_logo.png"
+      src="http://pic.qianye88.com/68da0cdd67a6a478737d5751c7b145e9.jpeg?imageMogr2/thumbnail/1275x/quality/100"
       height="380px"
+      style="opacity: 0.5"
     ></v-img>
     <v-row>
       <v-col cols="3" sm="4" md="5"></v-col>

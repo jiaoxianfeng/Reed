@@ -20,14 +20,14 @@ export default {
 
 <style scoped>
   .space{
-    height: 160px;
+    height: 130px;
     background-color: #AAAAAA;
     display:-webkit-box;
     -webkit-box-align:center;/* 垂直居中 */
     font-family: "Microsoft YaHei" ! important;
   }
   .space-text{
-    font-size: 70px;
+    font-size: 50px;
     color: white;
     margin-left: 80px;
   }

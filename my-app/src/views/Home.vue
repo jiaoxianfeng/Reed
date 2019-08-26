@@ -278,7 +278,7 @@ export default {
   .segtext-hot{
     position: relative;
     z-index: 2;
-    margin-top: 90px;
+    margin-top: 80px;
   }
 
   .comments{
