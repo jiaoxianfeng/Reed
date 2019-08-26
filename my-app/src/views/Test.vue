@@ -16,9 +16,9 @@
     mounted () {
       this.axios({
         method: 'post',
-        url: 'http://114.115.151.96:8666/User/Add',
+        url: 'http://114.115.151.96:8666/User/Login',
         data: {
-          account: 'abcd',
+          account: 'abc',
           password: 'abcd'
         },
         crossDomain: true

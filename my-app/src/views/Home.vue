@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div>
     <v-row no-gutters>
       <v-col cols="7" >
@@ -8,28 +8,45 @@
         <form @submit.prevent="login">
           <p class="b-text">人，是一根会思考的苇草</p>
           <p class="s-text">挖掘更多思想...</p>
+          <div v-if="!this.$store.state.logined">
+            <v-text-field
+              v-model="username"
+              label="Username"
+              filled
+              class="username"></v-text-field>
 
-          <v-text-field
-          v-model="last"
-          label="Username"
-          filled
-          class="username"></v-text-field>
 
-          <v-text-field
-            v-model="last"
-            label="Password"
-            filled
-          ></v-text-field>
+            <v-text-field
+              :value="password"
+              v-model="password"
+              label="Password"
+              type="Password"
+              filled
+            ></v-text-field>
 
-          <v-text-field
-            v-if="register"
-            v-model="last"
-            label="Re-enter Password"
-            filled
-          ></v-text-field>
 
-          <v-btn v-on:click="login" block color="secondary" dark>Login / Register</v-btn>
+            <v-text-field
+              :value="re_password"
+              v-if="register"
+              v-model="re_password"
+              label="Re-enter Password"
+              type="Password"
+              filled
+            ></v-text-field>
+            <v-row>
+              <v-col cols="12">
+                <v-btn v-on:click="login" block color="secondary" dark>Login / Register</v-btn>
+                <v-tooltip v-model="password_wrong_show" bottom color="red lighten-2" style="margin-left: 200px">
+                  <template v-slot:activator="{ on }" >
+                    <v-icon color="gray lighten-1">mdi-shopping_cart</v-icon>
+                  </template>
+                  <span>{{error_img}}</span>
+                </v-tooltip>
+              </v-col>
+            </v-row>
+          </div>
         </form>
+
       </v-col>
     </v-row>
     <SegText :text="hot" class="segtext-hot"/>
@@ -71,14 +88,15 @@ import HistoryComment from '../components/HistoryComment'
 export default {
   data () {
     return {
+      error_img:'',
+      password_wrong_show:false,
+      info: '',
       hot: '今日热门',
       topic: '今日话题',
       height: '560px',
       width: '310px',
       register: false,
-      username: '',
-      password: '',
-      re_password: '',
+      success: false,
       hot_content: [
         {},
         {},
@@ -97,8 +115,106 @@ export default {
     }
   },
   methods: {
+    unshow (){
+      this.password_wrong_show = false
+    },
     login () {
-      this.register = !this.register
+      // 未处于注册态,进行登录
+      if(this.register == false) {
+        this.axios({
+          method: 'post',
+          url: 'http://114.115.151.96:8666/User/Login',
+          data: {
+            account: this.$store.state.username,
+            password: this.$store.state.password
+          },
+          crossDomain: true
+        }).then(body => {
+          this.info = body
+          // 用户不存在
+          if (this.info.data === 0) {
+            this.register = true;
+            this.$store.commit("clear");
+          }
+          // 密码错误
+          else if(this.info.data === -1){
+            this.password_wrong_show = true
+            var that = this
+            this.error_img = '密码错误'
+            setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
+            this.$store.commit("clear");
+          }
+          // 登录成功
+          else{
+            this.$router.push({path:'/selfinfo'})
+            this.$store.commit("logined")
+          }
+        });
+      }
+      // 处于注册态
+      else {
+        // 两次密码输入正确
+        if(this.$store.state.re_password == this.$store.state.password){
+          this.axios({
+            method: 'post',
+            url: 'http://114.115.151.96:8666/User/Add',
+            data: {
+              account: this.$store.state.username,
+              password: this.$store.state.password
+            },
+            crossDomain: true
+          }).then(body => {
+            this.info = body
+            // 注册成功
+            if(this.info.data == 1){
+              this.$store.commit("logined")
+              this.$router.push({path:'/selfinfo'})
+            }
+            // 用户名已存在
+            else{
+              this.error_img = '用户已存在'
+              this.password_wrong_show = true
+              var that = this
+              setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
+              this.$store.commit("clearall");
+            }
+          });
+        }
+        // 两次密码输入不正确
+        else{
+          this.error_img = '两次密码不相同'
+          this.password_wrong_show = true
+          var that = this
+          setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
+          this.$store.commit("clear");
+        }
+      }
+    }
+  },
+  computed:{
+    username:{
+      get(){
+        return this.$store.state.username
+      },
+      set(newVal) {
+        this.$store.commit('handleUsername', newVal)
+      }
+    },
+    password:{
+      get(){
+        return this.$store.state.password
+      },
+      set(newVal) {
+        this.$store.commit('handlePassword', newVal)
+      }
+    },
+    re_password:{
+      get(){
+        return this.$store.state.re_password
+      },
+      set(newVal) {
+        this.$store.commit('handleRePassword', newVal)
+      }
     }
   },
   components: {
