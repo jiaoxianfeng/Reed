@@ -1,6 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div>
-    <v-row no-gutters>
+    <BackGroundVideo/>
+    <v-row no-gutters class="login-regist-container">
       <v-col cols="7" >
         <img src= "../imgs/full-logo.png" class="logo-left">
       </v-col>
@@ -13,8 +14,9 @@
               v-model="username"
               label="Username"
               filled
+              background-color="#eee"
+              style="opacity: 0.8"
               class="username"></v-text-field>
-
 
             <v-text-field
               :value="password"
@@ -22,6 +24,8 @@
               label="Password"
               type="Password"
               filled
+              background-color="#eee"
+              style="opacity: 0.8"
             ></v-text-field>
 
 
@@ -32,6 +36,8 @@
               label="Re-enter Password"
               type="Password"
               filled
+              background-color="#eee"
+              style="opacity: 0.8"
             ></v-text-field>
             <v-row>
               <v-col cols="12">
@@ -84,6 +90,7 @@
 import SegText from '../components/SegText'
 import Comments from '../components/Comments'
 import HistoryComment from '../components/HistoryComment'
+import BackGroundVideo from "../components/BackGroundVideo";
 
 export default {
   data () {
@@ -220,7 +227,8 @@ export default {
   components: {
     SegText,
     Comments,
-    HistoryComment
+    HistoryComment,
+      BackGroundVideo
   },
 };
 </script>
@@ -268,7 +276,9 @@ export default {
   }
 
   .segtext-hot{
-    margin-top: 65px;
+    position: relative;
+    z-index: 2;
+    margin-top: 90px;
   }
 
   .comments{
@@ -276,4 +286,10 @@ export default {
     padding: 50px;
   }
 
+  .login-regist-container{
+    margin-top: -100vh;
+    z-index: 2;
+    position: relative;
+    background: transparent;
+  }
 </style>
