@@ -9,13 +9,13 @@
     <p class="content-title">热门</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :height="height" :width="width"/>
+        <HistoryComment />
       </div>
     </div>
     <p class="content-title">最新</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :height="height" :width="width"/>
+        <HistoryComment />
       </div>
     </div>
     <p class="content-title">精彩评论</p>
@@ -34,8 +34,15 @@
 <script>
   import HistoryComment from '../components/HistoryComment'
   import WonderfulComment from '../components/WonderfulComment'
+  import draggable from 'vuedraggable'
+
   export default {
     name: "BMHome",
+    components: {
+      HistoryComment,
+      WonderfulComment,
+      draggable
+    },
     data () {
       return {
         wonderfulComments:[
@@ -45,10 +52,7 @@
         ]
       }
     },
-    components: {
-      HistoryComment,
-      WonderfulComment
-    },
+
   }
 </script>
 

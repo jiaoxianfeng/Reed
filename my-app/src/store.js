@@ -9,7 +9,9 @@ export default new Vuex.Store({
     password: '',
     re_password: '',
     logined:'',
-    error_img:''
+    error_img:'',
+    account:'',
+    introduction:''
   },
   mutations: {
     handleUsername(state, newVal){
@@ -35,9 +37,15 @@ export default new Vuex.Store({
     },
     logined(){
       this.state.logined = true
+    },
+    changeAccount(state, newVal){
+      state.account = newVal;
     }
   },
   actions: {
+    changeAC(context, newVal){
+      context.commit("changeAccount", newVal)
+    }
 
   }
 })

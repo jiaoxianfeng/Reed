@@ -1,8 +1,14 @@
 <template>
-  <v-app>
-    <NavBar/>
+  <v-app >
+    <div class="nav-top">
+      <NavBar />
+    </div>
+    <div style="height: 48px"></div>
     <router-view/>
   </v-app>
+  <!--<v-app>-->
+    <!--<NavBar />-->
+  <!--</v-app>-->
 </template>
 
 <script>
@@ -40,3 +46,13 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+  .nav-top{
+    position: fixed;
+    top:0;
+    height: 48px;
+    width: 100%;
+    z-index:9999;
+  }
+</style>

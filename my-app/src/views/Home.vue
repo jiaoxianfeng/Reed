@@ -145,16 +145,17 @@ export default {
           }
           // 密码错误
           else if(this.info.data === -1){
-            this.password_wrong_show = true
-            var that = this
-            this.error_img = '密码错误'
+            this.password_wrong_show = true;
+            var that = this;
+            this.error_img = '密码错误';
             setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
             this.$store.commit("clear");
           }
           // 登录成功
           else{
-            this.$router.push({path:'/selfinfo'})
-            this.$store.commit("logined")
+            this.$router.push({path:'/selfinfo'});
+            this.$store.commit("logined");
+            this.$store.dispatch("changeAC", this.info.data.account);
           }
         });
       }
@@ -176,6 +177,7 @@ export default {
             if(this.info.data == 1){
               this.$store.commit("logined")
               this.$router.push({path:'/selfinfo'})
+
             }
             // 用户名已存在
             else{

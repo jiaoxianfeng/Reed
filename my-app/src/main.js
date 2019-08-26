@@ -8,10 +8,12 @@ import '@mdi/font/css/materialdesignicons.css'
 import Vuetify from 'vuetify/lib'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueDraggable from 'vue-draggable'
 
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 Vue.use(Progress)
+Vue.use(VueDraggable)
 
 new Vue({
   router,

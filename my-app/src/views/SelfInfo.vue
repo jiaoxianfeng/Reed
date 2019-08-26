@@ -3,7 +3,7 @@
     <v-row no-gutters style="margin-left: auto;margin-right: auto;">
         <v-col cols="3" >
         <div class="left-user-info">
-          <UserInfo />
+          <UserInfo :name="this.$store.state.account" :signature="this.$store.state.introduction"/>
         </div>
       </v-col>
       <v-col cols="9">

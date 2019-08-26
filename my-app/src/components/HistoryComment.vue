@@ -10,27 +10,30 @@
       active-class="success"
       show-arrows
     >
-      <v-slide-item
-        v-for="(data, index) in card_content"
-        :key="index"
-        v-slot:default="{ active, toggle }"
-      >
-        <InfoCard :poster_img="card_content.card_content" :name="card_content.name" :score="card_content.score" :director="card_content.director"
-        :Starring="card_content.Starring" :duration="card_content.duration" :brief="card_content.brief" :looked="card_content.looked"/>
-      </v-slide-item>
+      <draggable tag="v-layout" class="row wrap justify-space-around" :list="card_content" group="people" @change="log">
+        <v-flex
+          v-for="(data, index) in card_content"
+          :key="index"
+        >
+          <InfoCard style="margin-right: 2px" :poster_img="card_content.card_content" :name="card_content.name" :score="card_content.score" :director="card_content.director"
+          :Starring="card_content.Starring" :duration="card_content.duration" :brief="card_content.brief" :looked="card_content.looked"/>
+        </v-flex>
+      </draggable>
     </v-slide-group>
   </v-sheet>
 </template>
 
 <script>
-  import InfoCard from './InfoCard'
+import InfoCard from './InfoCard'
+import draggable from 'vuedraggable'
 export default {
   name: "HistoryComment",
   data: () => ({
     model: null,
   }),
   components: {
-    InfoCard
+    InfoCard,
+    draggable
   },
   props: {
     card_content:{

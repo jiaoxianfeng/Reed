@@ -19,7 +19,7 @@
         url: 'http://114.115.151.96:8666/User/Login',
         data: {
           account: 'abc',
-          password: 'abcd'
+          password: 'abc'
         },
         crossDomain: true
       }).then(body =>{

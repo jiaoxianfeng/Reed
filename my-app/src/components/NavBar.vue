@@ -1,5 +1,5 @@
-<template>
-  <v-card style="border-radius: 0px">
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+  <v-card style="border-radius: 0px;">
 
     <v-tabs
       background-color="secondary"
@@ -10,12 +10,92 @@
       style="border-radius: 0px"
     >
       <img src= "../imgs/text-only -white.png" class="logo-header">
-      <v-tab aria-selected="false"><router-link class="link-text" to="/">主页</router-link></v-tab>
-      <v-tab aria-selected="true"><router-link class="link-text" to="/bmhome">书籍</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/bmshow">影视</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/group">小组</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
-      <div style="width: 42%"></div>
+      <router-link class="link-text" to="/"><v-tab aria-selected="false" style="height: 100%">主页</v-tab></router-link>
+      <router-link class="link-text" to="/bmhome" ><v-tab style="height: 100%">书籍</v-tab></router-link>
+      <router-link class="link-text" to="/bmshow"><v-tab style="height: 100%">影视</v-tab></router-link>
+      <router-link class="link-text" to="/group"><v-tab style="height: 100%">小组</v-tab></router-link>
+      <router-link class="link-text" to="/selfinfo"><v-tab style="height: 100%">我的</v-tab></router-link>
+      <div style="width: 35%"></div>
+
+
+<!-------------------------------------------------------------消息列表------------------------------------------------------------->
+      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click=closeOnContentClick max-height="340">
+        <template v-slot:activator="{ on }">
+          <v-btn
+            dark
+            icon
+            v-on="on"
+            style="margin-top:6px; margin-right: 20px"
+          >
+            <v-icon>mdi-message-processing</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list style="background: #EEEEEE;padding: 5px;">
+            <v-list-item
+              v-for="(item, i) in like_items"
+              :key="i"
+              @click=""
+              style="background-color:#CACACA; margin-top: 5px"
+            >
+              <v-row style="width: 300px; height: 105px;">
+                <v-col cols="9">
+                  <p class="massage-title">{{massage_title}}</p>
+                  <p class="massage-content">{{massage_content}}}</p>
+                </v-col>
+                <v-col cols="3">
+                  <v-icon large dark class="icon-delete">mdi-delete</v-icon>
+                </v-col>
+              </v-row>
+            </v-list-item>
+          <rawDisplayer class="col-3" :value="like_items" title="List 1" />
+        </v-list>
+      </v-menu>
+<!------------------------------------------------------------------------------------------------------------------------------>
+
+<!-------------------------------------------------------------收藏夹------------------------------------------------------------->
+      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click=closeOnContentClick max-height="325">
+          <template v-slot:activator="{ on }">
+            <v-btn
+              dark
+              icon
+              v-on="on"
+              style="margin-top:6px; margin-right: 20px"
+            >
+              <v-icon>mdi-heart</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list style="background: #EEEEEE;padding: 5px;">
+            <draggable class="list-group" :list="like_items" group="people" @change="log">
+              <v-list-item
+                v-for="(item, i) in like_items"
+                :key="i"
+                @click=""
+                style="background-color:#CACACA; margin-top: 5px"
+              >
+                <v-row style="width: 300px; height: 100px;">
+                  <v-col cols="4">
+                    <v-img
+                      class="poster"
+                      :src="poster_img"
+                    ></v-img>
+                  </v-col>
+                  <v-col cols="5">
+                    <p class="poster-name">{{poster_name}}</p>
+                    <ScoreBar class="scoreBar"/>
+                  </v-col>
+                  <v-col cols="3">
+                    <v-icon large dark class="icon-delete">mdi-delete</v-icon>
+                  </v-col>
+                </v-row>
+              </v-list-item>
+            </draggable>
+            <rawDisplayer class="col-3" :value="like_items" title="List 1" />
+          </v-list>
+      </v-menu>
+<!------------------------------------------------------------------------------------------------------------------------------>
+
       <v-text-field
         class="mx-xl-n7"
         flat
@@ -31,9 +111,21 @@
 
 <script>
 
+import ScoreBar from '../components/ScoreBar'
+import draggable from 'vuedraggable'
+
 export default {
+  components:{
+    ScoreBar,
+    draggable
+  },
   data () {
     return {
+      massage_title:'系统消息',
+      massage_content:'您在诗与远方发表的评论得到回复，点击查看',
+      closeOnContentClick: false,
+      poster_name:'寄生兽',
+      poster_img:'http://p1.ifengimg.com/cmpp/2016/07/11/17/88967cf4-a794-4a28-9675-c3ee65eebd30_size59_w600_h838.jpeg-contentimage',
       imgUrl: '../imgs/full-logo-white.png',
       tab: null,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -44,7 +136,20 @@ export default {
       prevIcon: false,
       nextIcon: false,
       right: false,
-      tabs: 3
+      tabs: 3,
+      like_items: [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      message_items:[
+        {},
+        {},
+        {},
+        {}
+      ]
     }
   },
   methods:{
@@ -58,6 +163,32 @@ export default {
 
 
 <style scoped>
+
+.massage-content{
+  font-size: 16px;
+  margin-top: -15px;
+}
+
+.massage-title{
+  font-size: 24px;
+  color: white;
+}
+
+.scoreBar{
+  margin-top: -20px;
+  margin-left: -10px;
+}
+
+.icon-delete{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.poster-name{
+  color:white;
+  font-size: 28px;
+  margin-left: -25px;
+}
 .logo-header{
   width: 70px;
   max-height: 50%;
@@ -77,5 +208,11 @@ a {
 }
 .router-link-active {
   text-decoration: none;
+}
+
+.poster{
+  width: 61px;
+  height: 86px;
+  margin:-5px 5px 5px -10px;
 }
 </style>
