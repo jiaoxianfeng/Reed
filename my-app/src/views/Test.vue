@@ -18,8 +18,8 @@
         method: 'post',
         url: 'http://114.115.151.96:8666/User/Login',
         data: {
-          account: 'abc',
-          password: 'abc'
+          account: 'abcd',
+          password: 'abcd'
         },
         crossDomain: true
       }).then(body =>{

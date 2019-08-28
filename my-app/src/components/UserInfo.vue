@@ -9,7 +9,7 @@
       <div style="height: 2px"></div>
       <v-img
         class="avatar-img"
-        :src="self_img"
+        :src="this.$store.state.selfAvatar"
         height="163px"
         width="163px"
         position="center center"
@@ -17,8 +17,8 @@
 
       <v-card-title >
         <div class="user-name">
-          <p class="name-text">{{name}}</p>
-          <p class="signature-text">{{signature}}</p>
+          <p class="name-text">{{this.$store.state.account}}</p>
+          <p class="signature-text">{{this.$store.state.introduction}}</p>
         </div>
 
       </v-card-title>
@@ -49,17 +49,6 @@
       data: () => ({
         show: false,
       }),
-      props: {
-        self_img:{
-          default: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg'
-        },
-        name: {
-          default: 'logos'
-        },
-        signature: {
-          default: '没有什么个性签名'
-        },
-      }
     }
 </script>
 

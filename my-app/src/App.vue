@@ -7,7 +7,7 @@
     <router-view/>
   </v-app>
   <!--<v-app>-->
-    <!--<NavBar />-->
+    <!--<router-view/>-->
   <!--</v-app>-->
 </template>
 

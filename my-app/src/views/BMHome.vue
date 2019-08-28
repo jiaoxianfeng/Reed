@@ -3,19 +3,19 @@
     <p class="content-title">推荐</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :height="height" :width="width"/>
+        <HistoryComment :card_content="today_recommend_content"/>
       </div>
     </div>
     <p class="content-title">热门</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment />
+        <HistoryComment :card_content="today_hot_content"/>
       </div>
     </div>
     <p class="content-title">最新</p>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment />
+        <HistoryComment :card_content="today_new_content"/>
       </div>
     </div>
     <p class="content-title">精彩评论</p>
@@ -52,6 +52,32 @@
         ]
       }
     },
+    computed: {
+      today_hot_content: {
+        get() {
+          return this.$store.state.today_hot_content
+        },
+        set(newVal) {
+          this.$store.commit('handleTodayHotContent', newVal)
+        }
+      },
+      today_recommend_content: {
+        get() {
+          return this.$store.state.today_recommend_content
+        },
+        set(newVal) {
+          this.$store.commit('handleTodayRecommendContent', newVal)
+        }
+      },
+      today_new_content: {
+        get() {
+          return this.$store.state.today_new_content
+        },
+        set(newVal) {
+          this.$store.commit('handleTodayNewContent', newVal)
+        }
+      },
+    }
 
   }
 </script>

@@ -58,8 +58,8 @@
     <SegText :text="hot" class="segtext-hot"/>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :card_content="hot_content"/>
-        <HistoryComment :card_content="hot_content"/>
+        <HistoryComment :card_content="today_hot_content"/>
+        <HistoryComment :card_content="today_hot_content"/>
       </div>
     </div>
     <SegText :text="topic" class="segtext-topic"/>
@@ -104,14 +104,6 @@ export default {
       width: '310px',
       register: false,
       success: false,
-      hot_content: [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
-      ],
       topics:[
         {},
         {},
@@ -156,6 +148,10 @@ export default {
             this.$router.push({path:'/selfinfo'});
             this.$store.commit("logined");
             this.$store.dispatch("changeAC", this.info.data.account);
+            this.$store.dispatch("changeInro",this.info.data.introduction);
+            this.$store.dispatch("changeSelfAvatar","http://114.115.151.96:8666/ProfilePicture/UserAccount/"+this.info.data.account);
+            that = this;
+            console.log(that.$store.state.selfAvatar)
           }
         });
       }
@@ -201,6 +197,14 @@ export default {
     }
   },
   computed:{
+    today_hot_content:{
+      get(){
+        return this.$store.state.today_hot_content
+      },
+      set(newVal) {
+        this.$store.commit('handleTodayHotContent', newVal)
+      }
+    },
     username:{
       get(){
         return this.$store.state.username
@@ -230,7 +234,7 @@ export default {
     SegText,
     Comments,
     HistoryComment,
-      BackGroundVideo
+    BackGroundVideo
   },
 };
 </script>

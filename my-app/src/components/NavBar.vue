@@ -2,24 +2,25 @@
   <v-card style="border-radius: 0px;">
 
     <v-tabs
+      v-model="activeTab"
+      fixed-tabs
       background-color="secondary"
       dark
-      next-icon
       color="white"
       class="nav-container"
       style="border-radius: 0px"
     >
       <img src= "../imgs/text-only -white.png" class="logo-header">
-      <router-link class="link-text" to="/"><v-tab aria-selected="false" style="height: 100%">主页</v-tab></router-link>
-      <router-link class="link-text" to="/bmhome" ><v-tab style="height: 100%">书籍</v-tab></router-link>
-      <router-link class="link-text" to="/bmshow"><v-tab style="height: 100%">影视</v-tab></router-link>
-      <router-link class="link-text" to="/group"><v-tab style="height: 100%">小组</v-tab></router-link>
-      <router-link class="link-text" to="/selfinfo"><v-tab style="height: 100%">我的</v-tab></router-link>
+      <router-link class="link-text" to="/"><v-tab to="/" :aria-selected="grow" style="height: 100%">主页</v-tab></router-link>
+      <router-link class="link-text" to="/bmhome"><v-tab to="/bmhome" style="height: 100%">书籍</v-tab></router-link>
+      <router-link class="link-text" to="/forum"><v-tab to="/bmshow" style="height: 100%">影视</v-tab></router-link>
+      <router-link class="link-text" to="/group"><v-tab to="/group" style="height: 100%">小组</v-tab></router-link>
+      <router-link class="link-text" to="/selfinfo"><v-tab to="/selfinfo" style="height: 100%">我的</v-tab></router-link>
       <div style="width: 35%"></div>
 
 
 <!-------------------------------------------------------------消息列表------------------------------------------------------------->
-      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click=closeOnContentClick max-height="340">
+      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click="closeOnContentClick" max-height="340">
         <template v-slot:activator="{ on }">
           <v-btn
             dark
@@ -33,28 +34,29 @@
 
         <v-list style="background: #EEEEEE;padding: 5px;">
             <v-list-item
-              v-for="(item, i) in like_items"
-              :key="i"
+              v-for="(item, index) in massage_content"
+              :key="index"
               @click=""
               style="background-color:#CACACA; margin-top: 5px"
             >
               <v-row style="width: 300px; height: 105px;">
                 <v-col cols="9">
-                  <p class="massage-title">{{massage_title}}</p>
-                  <p class="massage-content">{{massage_content}}}</p>
+                  <p class="massage-title">{{item.massage_title}}</p>
+                  <p class="massage-content">{{item.massage_content}}</p>
                 </v-col>
                 <v-col cols="3">
-                  <v-icon large dark class="icon-delete">mdi-delete</v-icon>
+                  <v-btn dark icon class="icon-delete" v-on:click="deleteMassage(index)">
+                    <v-icon large dark >mdi-delete</v-icon>
+                  </v-btn>
                 </v-col>
               </v-row>
             </v-list-item>
-          <rawDisplayer class="col-3" :value="like_items" title="List 1" />
         </v-list>
       </v-menu>
 <!------------------------------------------------------------------------------------------------------------------------------>
 
 <!-------------------------------------------------------------收藏夹------------------------------------------------------------->
-      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click=closeOnContentClick max-height="325">
+      <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click="closeOnContentClick" max-height="325">
           <template v-slot:activator="{ on }">
             <v-btn
               dark
@@ -67,10 +69,10 @@
           </template>
 
           <v-list style="background: #EEEEEE;padding: 5px;">
-            <draggable class="list-group" :list="like_items" group="people" @change="log">
+            <draggable class="list-group" :list="like_content" group="people">
               <v-list-item
-                v-for="(item, i) in like_items"
-                :key="i"
+                v-for="(item, index) in like_content"
+                :key="index"
                 @click=""
                 style="background-color:#CACACA; margin-top: 5px"
               >
@@ -78,20 +80,21 @@
                   <v-col cols="4">
                     <v-img
                       class="poster"
-                      :src="poster_img"
+                      :src="item.poster_img"
                     ></v-img>
                   </v-col>
                   <v-col cols="5">
-                    <p class="poster-name">{{poster_name}}</p>
+                    <p class="poster-name">{{item.name}}</p>
                     <ScoreBar class="scoreBar"/>
                   </v-col>
                   <v-col cols="3">
-                    <v-icon large dark class="icon-delete">mdi-delete</v-icon>
+                    <v-btn dark icon class="icon-delete" v-on:click="deleteItem(index)">
+                      <v-icon large dark >mdi-delete</v-icon>
+                    </v-btn>
                   </v-col>
                 </v-row>
               </v-list-item>
             </draggable>
-            <rawDisplayer class="col-3" :value="like_items" title="List 1" />
           </v-list>
       </v-menu>
 <!------------------------------------------------------------------------------------------------------------------------------>
@@ -115,14 +118,17 @@ import ScoreBar from '../components/ScoreBar'
 import draggable from 'vuedraggable'
 
 export default {
+
+
   components:{
     ScoreBar,
     draggable
   },
   data () {
     return {
-      massage_title:'系统消息',
-      massage_content:'您在诗与远方发表的评论得到回复，点击查看',
+      test:'1',
+      massage_color:'',
+      like_color:'',
       closeOnContentClick: false,
       poster_name:'寄生兽',
       poster_img:'http://p1.ifengimg.com/cmpp/2016/07/11/17/88967cf4-a794-4a28-9675-c3ee65eebd30_size59_w600_h838.jpeg-contentimage',
@@ -137,25 +143,42 @@ export default {
       nextIcon: false,
       right: false,
       tabs: 3,
-      like_items: [
-        {},
-        {},
-        {},
-        {},
-        {}
-      ],
-      message_items:[
-        {},
-        {},
-        {},
-        {}
-      ]
     }
   },
   methods:{
     submit: function(){
       this.$router.push({path:'/search'})
+    },
+    like: function () {
+      this.like_color = (this.like_color == '') ? 'red':''
+    },
+    massage: function () {
+      this.massage_color = this.massage_color == '' ? 'green':''
+    },
+    deleteItem: function(index){
+      this.$store.dispatch("deleteLikeItem", index);
+    },
+    deleteMassage: function (index) {
+      this.$store.dispatch("deleteMassageItem", index);
     }
+  },
+  computed: {
+    like_content: {
+      get() {
+        return this.$store.state.like_content
+      },
+      set(newVal) {
+        this.$store.commit('handleLikeContent', newVal)
+      }
+    },
+    massage_content: {
+      get() {
+        return this.$store.state.massage_content
+      },
+      set(newVal) {
+        this.$store.commit('handleMassageContent', newVal)
+      }
+    },
   }
 }
 </script>

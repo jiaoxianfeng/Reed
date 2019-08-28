@@ -73,32 +73,42 @@
       // breifing: "故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？",
       // people_seen: 1024,
     }),
-    props: {
-      poster_img:{
-        default: 'https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg'
-      },
-      name:{
-        default: 'Roma'
-      },
-      score:{
-        default: 37.6
-      },
-      director:{
-        default: '阿方索·卡隆'
-      },
-      Starring:{
-        default: '雅利扎·阿巴里西奥'
-      },
-      duration:{
-        default: 135
-      },
-      brief:{
-        default: '故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？'
-      },
-      looked:{
-        default: '1024'
-      },
-    },
+    // props: {
+    //   poster_img:{
+    //     default: 'https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg'
+    //   },
+    //   name:{
+    //     default: 'Roma'
+    //   },
+    //   score:{
+    //     default: 37.6
+    //   },
+    //   director:{
+    //     default: '阿方索·卡隆'
+    //   },
+    //   Starring:{
+    //     default: '雅利扎·阿巴里西奥'
+    //   },
+    //   duration:{
+    //     default: 135
+    //   },
+    //   brief:{
+    //     default: '故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？'
+    //   },
+    //   looked:{
+    //     default: '1024'
+    //   },
+    // },
+    props:[
+      "poster_img",
+      "name",
+      "score",
+      "director",
+      "Starring",
+      "duration",
+      "brief",
+      "looked"
+    ],
     computed: {
       red_width: function() {
         if(this.score<0)

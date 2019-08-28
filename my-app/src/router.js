@@ -13,8 +13,8 @@ export default new Router({
       name: 'home',
       component: Home
       // path: '/',
-      // name: 'testcompnent',
-      // component: TestComponent
+      // name: 'test',
+      // component: Test
     },
     {
       path: '/about',
@@ -71,6 +71,14 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "bmhome" */ './views/Search.vue')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "test" */ './views/Test.vue')
     }
   ]
 })
