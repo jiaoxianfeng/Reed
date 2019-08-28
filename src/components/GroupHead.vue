@@ -4,18 +4,13 @@
     height="500px"
   >
     <v-img
-      src="../assets/movie2.jpg"
+      :src="img"
       height="380px"
     ></v-img>
     <v-row>
       <v-col cols="3" sm="4" md="5"></v-col>
       <v-col cols="6" sm="4" md="2">
-        <v-card align="center" justify="center" class="group-card">
-          <v-img src="../assets/movie2.jpg" height="200px" width="200px" style="margin-top:10px;"></v-img>
-          <v-card-title class="heading" style="color: white">{{groupName}}</v-card-title>
-          <v-card-text style="color: white">{{groupMotto}}</v-card-text>
-          <v-btn class="btn" text>加入小组</v-btn>
-        </v-card>
+        <GroupCard class="card" :img="img" :groupName="groupName" :groupMotto="groupMotto"></GroupCard>
       </v-col>
       <v-col cols="3" sm="4" md="5"></v-col>
     </v-row>
@@ -23,12 +18,8 @@
 </template>
 
 <style scoped>
-  .group-card{
+  .card{
     position: absolute;
-    min-width: 220px;
-    max-width: 100%;
-    height: 370px;
-    background-color: black;
     top: 100px;
   }
   .btn{
@@ -37,11 +28,16 @@
 </style>
 
 <script>
+import GroupCard from "./GroupCard"
 export default {
   name: 'GroupHead',
+  components: {
+    GroupCard
+  },
   data: () => ({
-    groupName:"诗与远方",
-    groupMotto:"交流着事宜的人生",
+    img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566970842859&di=ec1f2e2c6da8c2a6208a757aedb26f6c&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn17%2F600%2Fw1920h1080%2F20180627%2F310c-hencxtv2861523.jpg",
+    groupName: "诗与远方",
+    groupMotto: "交流着事宜的人生"
   })
 };
 </script>

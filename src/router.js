@@ -69,6 +69,22 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "bmhome" */ './views/Search.vue')
+    },
+    {
+      path: '/groupFind',
+      name: 'groupFind',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "bmhome" */ './views/GroupFind.vue')
+    },
+    {
+      path: '/myGroup',
+      name: 'myGroup',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "bmhome" */ './views/MyGroup.vue')
     }
   ]
 })

@@ -13,7 +13,7 @@
       <v-tab><router-link class="link-text" to="/">主页</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/bmhome">书籍</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/bmhome">影视</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/group">小组</router-link></v-tab>
+      <v-tab><router-link class="link-text" :to="group">小组</router-link></v-tab>
       <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
       <div style="width: 42%"></div>
       <v-text-field
@@ -51,6 +51,17 @@ export default {
   methods:{
     submit: function (keyword){
       this.$router.push({path:'/search'})
+    }
+  },
+  computed:{
+    group: {
+      get () {
+        if(this.$store.state.groupStatus.joinedNum==0){
+          return "/groupFind"
+        }else{
+          return "/myGroup"
+        }
+      }
     }
   }
 }
