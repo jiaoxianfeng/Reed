@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="swiper">
+      <Swiper />
+    </div>
     <div class="outer">
       <div style="position:relative;margin-top: 50px;margin-left: 30px">
         <SideBar />
@@ -42,6 +45,7 @@
   import WonderfulComment from '../components/WonderfulComment'
   import draggable from 'vuedraggable'
   import SideBar from "./SideBar";
+  import Swiper from "../components/Swiper";
 
   export default {
     name: "BMHome",
@@ -49,7 +53,8 @@
       HistoryComment,
       WonderfulComment,
       draggable,
-        SideBar
+        SideBar,
+        Swiper
     },
     data () {
       return {
@@ -108,5 +113,8 @@
     flex-direction: row;
     justify-content: center;
     background: white;
+  }
+  .swiper{
+    width: 100%;
   }
 </style>
