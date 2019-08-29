@@ -1,31 +1,21 @@
 <template>
-  <div>
-    <div class="swiper">
-      <Swiper />
-    </div>
-    <div class="outer">
-      <div style="position:relative;margin-top: 50px;margin-left: 30px">
-        <SideBar />
+  <div >
+    <p class="content-title">推荐</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :card_content="today_recommend_content"/>
       </div>
-      <div class="bm-part">
-        <p class="content-title">推荐</p>
-        <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
-          <div class="hot-content">
-            <HistoryComment :card_content="today_recommend_content"/>
-          </div>
-        </div>
-        <p class="content-title">热门</p>
-        <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
-          <div class="hot-content">
-            <HistoryComment :card_content="today_hot_content"/>
-          </div>
-        </div>
-        <p class="content-title">最新</p>
-        <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
-          <div class="hot-content">
-            <HistoryComment :card_content="today_new_content"/>
-          </div>
-        </div>
+    </div>
+    <p class="content-title">热门</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :card_content="today_hot_content"/>
+      </div>
+    </div>
+    <p class="content-title">最新</p>
+    <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
+      <div class="hot-content">
+        <HistoryComment :card_content="today_new_content"/>
       </div>
     </div>
     <p class="content-title">精彩评论</p>
@@ -37,6 +27,7 @@
         <WonderfulComment />
       </v-col>
     </v-row>
+    <div style="height: 200px"></div>
   </div>
 </template>
 
@@ -44,17 +35,13 @@
   import HistoryComment from '../components/HistoryComment'
   import WonderfulComment from '../components/WonderfulComment'
   import draggable from 'vuedraggable'
-  import SideBar from "./SideBar";
-  import Swiper from "../components/Swiper";
 
   export default {
     name: "BMHome",
     components: {
       HistoryComment,
       WonderfulComment,
-      draggable,
-        SideBar,
-        Swiper
+      draggable
     },
     data () {
       return {
@@ -96,25 +83,14 @@
 </script>
 
 <style scoped>
-  .content-title{
-    margin-left: 50px;
-    margin-top: 40px;
-    font-size: 32px;
-    color:#AAAAAA;
-  }
-  .hot-content{
-    width: 800px;
-  }
-  .bm-part{
-    width: 80%;
-  }
-  .outer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background: white;
-  }
-  .swiper{
-    width: 100%;
-  }
+.content-title{
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-left: 10%;
+  font-size: 56px;
+  color:#AAAAAA;
+}
+.hot-content{
+  width: 1060px;
+}
 </style>

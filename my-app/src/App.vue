@@ -5,7 +5,6 @@
     </div>
     <div style="height: 48px"></div>
     <router-view/>
-    <Footer/>
   </v-app>
   <!--<v-app>-->
     <!--<router-view/>-->
@@ -25,8 +24,8 @@ import Post from "./components/Post"
 import PostReply from "./components/PostReply"
 import ScoreBar from "./components/ScoreBar"
 import WonderfulComment from "./components/WonderfulComment"
-import Footer from "./components/Footer";
-
+import Geet from "./components/Geet"
+import Gtpage from "./components/GtPage"
 export default {
   name: 'App',
   components: {
@@ -42,7 +41,8 @@ export default {
     SelfComments,
     ScoreBar,
     WonderfulComment,
-      Footer
+    Geet,
+    Gtpage
   },
   data: () => ({
     hot: '今日热门'

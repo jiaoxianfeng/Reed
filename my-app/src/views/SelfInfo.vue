@@ -103,7 +103,7 @@ export default {
 
 <style scoped>
   .left-user-info{
-    margin-top: 200px;
+    margin-top: 240px;
   }
   .comment-book{
     background-color: #AEAEAE;
