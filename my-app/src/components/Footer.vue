@@ -1,8 +1,15 @@
 <template>
   <div class="outer">
     <div class="topper">
-      <img src= "../imgs/text-only-black.png" style="width: 80px;margin-right: 100px"/>
-      <v-icon size="30px" style="color:black">mdi-gitlab</v-icon>
+      <div class="inner">
+        <img src= "../imgs/text-only-black.png" style="width: 80px;margin-left: 100px"/>
+        <v-icon size="30px"
+                style="color:black;float:right;margin-right: 100px"
+                @click="toGithub"
+        >
+          mdi-github-circle
+        </v-icon>
+      </div>
     </div>
     <div class="lower">
       &copy;2019 — <strong>Reed.</strong>
@@ -14,7 +21,12 @@
     export default {
         data: () => ({
 
-        })
+        }),
+        methods: {
+            toGithub() {
+                window.location.href = "https://github.com/XianfengJiao/Reed";
+            },
+        },
     }
 </script>
 
@@ -33,10 +45,15 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .inner{
+    width: 100%;
+  }
+
   .lower{
     width: 100%;
     height: 30px;
-    background: rgb(100,100,100);
+    background: #aaa;
     color: white;
     display: flex;
     flex-direction: row;
