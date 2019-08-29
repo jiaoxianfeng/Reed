@@ -65,17 +65,17 @@ export default {
       ]
     }
   },
-  mounted(){
+  mounted () {
     this.axios({
       method: 'post',
       url: 'http://114.115.151.96:8666/search/filmlikelist',
       data: {
-        pagesCount:20
+        pagesCount: 20
       },
       crossDomain: true
-    }).then(body =>{
-      this.info = body;
-      this.$store.dispatch("getTodayRecommend", this.info.data);
+    }).then(body => {
+      this.info = body
+      this.$store.dispatch('getTodayRecommend', this.info.data)
     });
   },
   computed: {

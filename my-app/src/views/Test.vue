@@ -16,10 +16,9 @@ export default {
   mounted () {
     this.axios({
       method: 'post',
-      url: 'http://114.115.151.96:8666/User/Login',
+      url: 'http://114.115.151.96:8666/search/filmlikelist',
       data: {
-        account: 'abcd',
-        password: 'abcd'
+        pagesCount: 20
       },
       crossDomain: true
     }).then(body => {

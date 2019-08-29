@@ -28,7 +28,6 @@
               style="opacity: 0.8"
             ></v-text-field>
 
-
             <v-text-field
               :value="re_password"
               v-if="register"
@@ -90,14 +89,14 @@
 import SegText from '../components/SegText';
 import Comments from '../components/Comments';
 import HistoryComment from '../components/HistoryComment';
-import BackGroundVideo from "../components/BackGroundVideo";
+import BackGroundVideo from '../components/BackGroundVideo';
 
 export default {
 
   data () {
     return {
-      error_img:'',
-      password_wrong_show:false,
+      error_img: '',
+      password_wrong_show: false,
       info: '',
       hot: '今日热门',
       topic: '今日话题',
@@ -114,7 +113,7 @@ export default {
       ]
     }
   },
-  mounted() {
+  mounted () {
     this.axios({
       method: 'post',
       url: 'http://114.115.151.96:8666/film/findAll',
@@ -132,19 +131,18 @@ export default {
     },
     login () {
       // 未输入账号
-      if (this.$store.state.username == '') {
-        this.password_wrong_show = true;
-        var that = this;
-        this.error_img = '请输入账号';
+      if (this.$store.state.username === '') {
+        this.password_wrong_show = true
+        var that = this
+        this.error_img = '请输入账号'
         setTimeout(function () {
-          that.password_wrong_show = false;
-          that.$forceUpdate();
-        }, 2000);
-        this.$store.commit('clear');
+          that.password_wrong_show = false
+          that.$forceUpdate()
+        }, 2000)
+        this.$store.commit('clear')
       } else {
-
         // 未处于注册态,进行登录
-        if (this.register == false) {
+        if (this.register === false) {
           this.axios({
             method: 'post',
             url: 'http://114.115.151.96:8666/User/Login',
@@ -157,19 +155,19 @@ export default {
             this.info = body
             // 用户不存在
             if (this.info.data === 0) {
-              this.register = true;
-              this.$store.commit("clear");
+              this.register = true
+              this.$store.commit('clear')
             }
             // 密码错误
             else if (this.info.data === -1) {
-              this.password_wrong_show = true;
-              var that = this;
-              this.error_img = '密码错误';
+              this.password_wrong_show = true
+              var that = this
+              this.error_img = '密码错误'
               setTimeout(function () {
-                that.password_wrong_show = false;
-                that.$forceUpdate();
+                that.password_wrong_show = false
+                that.$forceUpdate()
               }, 2000);
-              this.$store.commit("clear");
+              this.$store.commit('clear')
             }
             // 登录成功
             else {

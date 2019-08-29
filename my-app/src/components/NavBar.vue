@@ -2,7 +2,6 @@
   <v-card style="border-radius: 0px;">
 
     <v-tabs
-      v-model="activeTab"
       fixed-tabs
       background-color="secondary"
       dark
