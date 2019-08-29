@@ -17,7 +17,50 @@
       <router-link class="link-text" to="/group"><v-tab to="/group" style="height: 100%">小组</v-tab></router-link>
       <router-link class="link-text" to="/selfinfo"><v-tab to="/selfinfo" style="height: 100%">我的</v-tab></router-link>
       <div style="width: 35%"></div>
+<!-------------------------------------------------------------浏览历史------------------------------------------------------------->
+      <v-menu open-on-hover bottom offset-y :close-on-content-click="closeOnContentClick">
+        <template v-slot:activator="{ on }">
+          <v-btn
+            dark
+            icon
+            v-on="on"
+            style="margin-top:6px; margin-right: 20px"
+          >
+            <v-icon>mdi-history</v-icon>
+          </v-btn>
+        </template>
 
+        <v-tabs v-model="tab"
+                class="justify-center"
+                style="width: 300px;"
+        >
+          <v-tab>帖子</v-tab>
+          <v-tab>作品</v-tab>
+          <v-tabs-slider></v-tabs-slider>
+        </v-tabs>
+
+        <v-tabs-items v-model="tab">
+          <v-tab-item>
+            <div class="history-forum">
+              <v-icon color="#aaa" style="margin-right: 20px">mdi-comment</v-icon>
+              <div style="font-size: 14px;margin: 10px;width:200px;overflow: hidden">帖子标题标题标题标题</div>
+              <v-icon color="#aaa" style="float: right">mdi-delete</v-icon>
+            </div>
+          </v-tab-item>
+          <v-tab-item>
+            <div class="history-bm">
+              <v-img
+                :src="poster_img"
+                :aspect-ratio="1"
+                max-width="60px"
+                max-height="80px"
+              />
+              <div style="font-size: 14px;margin: 10px;width:200px;overflow: hidden">标题标题标题</div>
+              <v-icon color="#aaa" style="float: right">mdi-delete</v-icon>
+            </div>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-menu>
 
 <!-------------------------------------------------------------消息列表------------------------------------------------------------->
       <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click="closeOnContentClick" max-height="340">
@@ -238,4 +281,16 @@ a {
   height: 86px;
   margin:-5px 5px 5px -10px;
 }
+
+  .history-bm,.history-forum{
+    width: 300px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px;
+    margin: 2px;
+    background: #eee;
+  }
 </style>

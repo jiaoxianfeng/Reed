@@ -9,7 +9,10 @@ import Vuetify from 'vuetify/lib'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueDraggable from 'vue-draggable'
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts
+require('echarts-wordcloud')
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 Vue.use(Progress)
