@@ -34,24 +34,38 @@
         ></SearchBar>
       </v-tab-item>
     </v-tabs-items>
-    <Pagination></Pagination>
+    <v-pagination
+      v-model='page'
+      :disabled='disabled'
+      :length='$store.state.search.pageNum'
+      :next-icon='nextIcon'
+      :prev-icon='prevIcon'
+      :page= "page"
+      :total-visible='totalVisible'
+      color='#ccc'
+    ></v-pagination>
   </div>
 </template>
 
 <script>
 import SearchBar from './SearchBar'
-import Pagination from "./Pagination"
 export default {
   name: 'SearchMenu',
   components: {
-    SearchBar,
-    Pagination
+    SearchBar
   },
   data () {
     return {
       tab: null,
       tabs: 3,
-      tabNames: ['书籍', '影视', '小组']
+      tabNames: ['书籍', '影视', '小组'],
+      pageNum: 10,
+      page: 1,
+      circle: false,
+      disabled: false,
+      nextIcon: 'mdi-arrow-right',
+      prevIcon: 'mdi-arrow-left',
+      totalVisible: 10
     }
   },
   mounted () {
@@ -61,7 +75,8 @@ export default {
     cli: function (i) {
       this.$store.commit('handleTab', i)
     }
-  }
+  },
+
 }
 </script>
 

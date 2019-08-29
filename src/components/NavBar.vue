@@ -10,11 +10,11 @@
       style="border-radius: 0px"
     >
       <img src= "../imgs/text-only -white.png" class="logo-header">
-      <v-tab><router-link class="link-text" to="/">主页</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/bmhome">书籍</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/bmhome">影视</router-link></v-tab>
-      <v-tab><router-link class="link-text" :to="group">小组</router-link></v-tab>
-      <v-tab><router-link class="link-text" to="/selfinfo">我的</router-link></v-tab>
+      <v-tab to="/">主页</v-tab>
+      <v-tab to="/bmhome">书籍</v-tab>
+      <v-tab to="/bmhome">影视</v-tab>
+      <v-tab :to="group">小组</v-tab>
+      <v-tab to="/selfinfo">我的</v-tab>
       <div style="width: 42%"></div>
       <v-text-field
         @keyup.enter="submit"
@@ -50,6 +50,7 @@ export default {
   },
   methods:{
     submit: function (keyword){
+      this.$router.commit("changeKeyword",keyword)
       this.$router.push({path:'/search'})
     }
   },
