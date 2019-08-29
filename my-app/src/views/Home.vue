@@ -27,7 +27,8 @@
               background-color="#eee"
               style="opacity: 0.8"
             ></v-text-field>
-            <Geet :isGeet="this.$store.state.isgt" @geetPath="GeetPath" @clickChange="GeetChange" @GeetPass="GeetPass"></Geet>
+
+
             <v-text-field
               :value="re_password"
               v-if="register"
@@ -76,8 +77,10 @@
                     :num_comment="topics.num_comment" :num_like="topics.num_like"
           />
         </v-col>
+
       </v-row>
       <div style="height: 100px"></div>
+
     </div>
 
   </div>
@@ -88,8 +91,7 @@ import SegText from '../components/SegText'
 import Comments from '../components/Comments'
 import HistoryComment from '../components/HistoryComment'
 import BackGroundVideo from "../components/BackGroundVideo";
-import Gtpage from "../components/GtPage";
-import Geet from "../components/Geet";
+
 export default {
   data () {
     return {
@@ -112,21 +114,10 @@ export default {
     }
   },
   methods: {
-    // 极验图片加载之后，通过更改控制变量实现可以再次加载
-    GeetChange(val) {
-      this.$store.state.isgt = val;
-    },
-    GeetPath(val) {
-      console.log("4,接受到图形验证参数，将参数发往服务端进行验证");
-      console.log(val);
-      this.$store.state.isgt = false;
-    },
     unshow (){
       this.password_wrong_show = false
     },
     login () {
-      console.log("2,按钮被点击，进行图形验证");
-      this.$store.commit('handelisgt');
       // 未处于注册态,进行登录
       if(this.register == false) {
         this.axios({
@@ -206,14 +197,6 @@ export default {
     }
   },
   computed:{
-    pass:{
-      get(){
-        return this.$store.state.pass;
-      },
-      get(){
-        this.$store.commit('handlePass', newVal);
-      }
-    },
     today_hot_content:{
       get(){
         return this.$store.state.today_hot_content
@@ -251,9 +234,7 @@ export default {
     SegText,
     Comments,
     HistoryComment,
-    BackGroundVideo,
-    Gtpage,
-    Geet
+    BackGroundVideo
   },
 };
 </script>
