@@ -57,14 +57,34 @@
 
         <v-row
           align="center"
-          justify="end"
           class="comment-bottom"
         >
-          <v-icon class="mr-1" color="white">mdi-comment</v-icon>
-          <span class="subheading mr-2">{{num_comment}}</span>
-          <span class="mr-1"></span>
-          <v-icon class="mr-1" color="white">mdi-thumb-up</v-icon>
-          <span class="subheading">{{num_like}}</span>
+          <v-menu bottom offset-y nudge-bottom="10" :close-on-content-click="closeOnContentClick" max-height="300" style="float:left !important;">
+            <template v-slot:activator="{ on }">
+              <v-btn
+                dark
+                icon
+                v-on="on"
+                style=""
+              >
+                <v-icon>mdi-menu</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list style="background: #EEEEEE;padding: 2px;width: 130px">
+              <v-list-item @click="" class="card-option justify-center">举报</v-list-item>
+              <v-list-item @click="" class="card-option justify-center">删除</v-list-item>
+              <v-list-item @click="" class="card-option justify-center">置顶</v-list-item>
+              <v-list-item @click="" class="card-option justify-center">设为精华</v-list-item>
+            </v-list>
+          </v-menu>
+          <v-row justify="end" style="padding-right: 10px">
+            <v-icon class="mr-1" color="white">mdi-comment</v-icon>
+            <span class="subheading mr-2">{{num_comment}}</span>
+            <span class="mr-1"></span>
+            <v-icon class="mr-1" color="white">mdi-thumb-up</v-icon>
+            <span class="subheading">{{num_like}}</span>
+          </v-row>
         </v-row>
       </v-list-item>
     </v-card-actions>
@@ -201,5 +221,13 @@
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .card-option{
+    margin-top: 3px;
+    font-size: 13px;
+    color: #646464;
+    text-align: center;
+    height: 20px;
   }
 </style>
