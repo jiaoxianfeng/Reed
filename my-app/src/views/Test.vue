@@ -6,28 +6,28 @@
 
 <script>
 
-  export default {
-    name: "Test",
-    data () {
-      return {
-        info: null
-      }
-    },
-    mounted () {
-      this.axios({
-        method: 'post',
-        url: 'http://114.115.151.96:8666/User/Login',
-        data: {
-          account: 'abcd',
-          password: 'abcd'
-        },
-        crossDomain: true
-      }).then(body => {
-        this.info = body
-      })
+export default {
+  name: 'Test',
+  data () {
+    return {
+      info: null
     }
-
+  },
+  mounted () {
+    this.axios({
+      method: 'post',
+      url: 'http://114.115.151.96:8666/User/Login',
+      data: {
+        account: 'abcd',
+        password: 'abcd'
+      },
+      crossDomain: true
+    }).then(body => {
+      this.info = body
+    })
   }
+
+}
 </script>
 
 <style scoped>

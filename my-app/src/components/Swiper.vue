@@ -24,50 +24,52 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-    export default{
-      components:{
-        swiperSlide,
-          swiper
-      },
-        data() {
-            return {
-                // swiper轮播的参数
-                swiperOption: {
-                    // 自动播放
-                    autoplay: {
-                        delay: 3000,
-                        stopOnLastSlide: false,
-                        disableOnInteraction: true,
-                    },
-                    // 滚动条
-                    scrollbar: {
-                        el: '.swiper-scrollbar',
-                    },
-                    // 上一张，下一张
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    // 其他参数…………
-                },
-                content: [
-                    {
-                        index: 1,
-                        imgUrl: "https://image.gcores.com/9d01e1c7-6d8b-441b-9d07-625078dc5765.jpg",
-                        text: '1'
-                    },{
-                        index: 2,
-                        imgUrl: "https://image.gcores.com/4eb4d9c5-b979-430b-99f3-069f1dd1d5cb.jpg",
-                        text: '1'
-                    },{
-                        index: 3,
-                        imgUrl: "https://image.gcores.com/e5d34cf1-70cf-4a3f-91cc-bc0391031949.jpg",
-                        text: '1'
-                    },
-                ]
-            }
+export default {
+  components: {
+    swiperSlide,
+    swiper
+  },
+  data () {
+    return {
+    // swiper轮播的参数
+      swiperOption: {
+        // 自动播放
+        autoplay: {
+          delay: 3000,
+          topOnLastSlide: false,
+          disableOnInteraction: true,
         },
+        // 滚动条
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+        // 上一张，下一张
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }
+        // 其他参数…………
+      },
+      content: [
+        {
+          index: 1,
+          imgUrl: 'https://image.gcores.com/9d01e1c7-6d8b-441b-9d07-625078dc5765.jpg',
+          text: '1'
+        },
+        {
+          index: 2,
+          imgUrl: 'https://image.gcores.com/4eb4d9c5-b979-430b-99f3-069f1dd1d5cb.jpg',
+          text: '1'
+        },
+        {
+          index: 3,
+          imgUrl:'https://image.gcores.com/e5d34cf1-70cf-4a3f-91cc-bc0391031949.jpg',
+          text: '1'
+        },
+    ]
+    }
   }
+}
 </script>
 
 <style scoped>

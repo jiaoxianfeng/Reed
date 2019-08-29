@@ -16,43 +16,41 @@
 </template>
 
 <script>
-import NavBar from '../components/NavBar'
 import SelfComments from '../components/SelfComments'
 import Post from '../components/Post'
 import PostReply from '../components/PostReply'
 
 export default {
-  name: "Forum",
+  name: 'Forum',
   data () {
     return {
       selfComments: [
         {
-          "reply": 0,
-          "toptag": 1,
+          'reply': 0,
+          'toptag': 1
         },
         {
-          "reply": 0,
-          "toptag": 1,
+          'reply': 0,
+          'toptag': 1
         },
         {
-          "reply": 1,
+          'reply': 1
         },
         {
-          "reply": 0,
-          "toptag": 2,
+          'reply': 0,
+          'toptag': 2
         },
         {
-          "reply": 2
+          'reply': 2
         }
       ]
     }
   },
   components: {
-    NavBar,
     Post,
     SelfComments,
     PostReply
-  },
+  }
 }
 </script>
 

@@ -105,7 +105,7 @@ export default {
       width: '310px',
       register: false,
       success: false,
-      topics:[
+      topics: [
         {},
         {},
         {},
@@ -121,14 +121,13 @@ export default {
       data: {
       },
       crossDomain: true
-    }).then(body =>{
-      this.info = body;
-      this.$store.dispatch("getTodayRecommend", this.info.data);
-    });
+    }).then(body => {
+      this.info = body
+      this.$store.dispatch('getTodayRecommend', this.info.data)
+    })
   },
   methods: {
-    test_log,
-    unshow (){
+    unshow () {
       this.password_wrong_show = false
     },
     login () {
@@ -141,7 +140,7 @@ export default {
           that.password_wrong_show = false;
           that.$forceUpdate();
         }, 2000);
-        this.$store.commit("clear");
+        this.$store.commit('clear');
       } else {
 
         // 未处于注册态,进行登录

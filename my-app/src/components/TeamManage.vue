@@ -31,18 +31,18 @@
 
 <script>
 export default {
-    name: "TeamManage",
-    props: {
-      team_img:{
-        default: 'https://upload-images.jianshu.io/upload_images/2707438-61bec868c535b5d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp'
-      },
-      team_name: {
-        default: '诗和远方'
-      },
-      position: {
-        default: '管理员'
-      },
+  name: 'TeamManage',
+  props: {
+    team_img: {
+      default: 'https://upload-images.jianshu.io/upload_images/2707438-61bec868c535b5d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp'
+    },
+    team_name: {
+      default: '诗和远方'
+    },
+    position: {
+      default: '管理员'
     }
+  }
 }
 </script>
 
@@ -83,6 +83,4 @@ export default {
   .team-btn{
     margin-top: 5px;
   }
-
-
 </style>
