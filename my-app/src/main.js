@@ -10,6 +10,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueDraggable from 'vue-draggable'
 import echarts from 'echarts'
+import captcha from 'vue-social-captcha'
+import scroll from 'vue-seamless-scroll'
 
 Vue.prototype.$echarts = echarts
 require('echarts-wordcloud')
@@ -18,12 +20,20 @@ Vue.config.productionTip = false
 Vue.use(Progress)
 Vue.use(VueDraggable)
 
+
+Vue.use(scroll);
+Vue.use(captcha);
+Vue.use(VueAxios, axios);
+Vue.config.productionTip = false;
+Vue.use(Progress);
+Vue.use(VueDraggable);
+
 new Vue({
   router,
   store,
   vuetify,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
 
 export default new Vuetify({
   icons: {

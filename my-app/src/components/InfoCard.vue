@@ -6,13 +6,19 @@
           <v-img
             :src="poster_img"
             :aspect-ratio="1"
-            max-width="160"
+            max-width="150"
             min-width="140"
             min-height="200"
+            style="margin: -5px 5px 0px 5px"
           >
           </v-img>
           <v-card-title style="margin-top:-10px;font-size:28px">
-            <div class="title font-weight-regular grey--text">{{name}}
+            <div class=" grey--text" style="font-size: 20px;">
+              <vue-seamless-scroll :data="newsList" :class-option="optionLeft" class="seamless-warp2">
+                <ul class="item">
+                  <li v-for="item in newsList" v-text="item.title"></li>
+                </ul>
+              </vue-seamless-scroll>
             </div>
           </v-card-title>
           <div class="bar_outer">
@@ -59,46 +65,34 @@
       </div>
     </div>
   </div>
+
+
 </template>
 
 <script>
   export default {
     name: 'InfoCard',
-    data: () => ({
-      // score: 37.6,
-      // img_src: "https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg",
-      // director: "阿方索·卡隆",
-      // filmstar: "雅利扎·阿巴里西奥",
-      // length: 135,
-      // breifing: "故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活\？",
-      // people_seen: 1024,
-    }),
-    // props: {
-    //   poster_img:{
-    //     default: 'https://m.media-amazon.com/images/M/MV5BMTU0OTc3ODk4Ml5BMl5BanBnXkFtZTgwMzM4NzI5NjM@._V1_UX182_CR0,0,182,268_AL_.jpg'
-    //   },
-    //   name:{
-    //     default: 'Roma'
-    //   },
-    //   score:{
-    //     default: 37.6
-    //   },
-    //   director:{
-    //     default: '阿方索·卡隆'
-    //   },
-    //   Starring:{
-    //     default: '雅利扎·阿巴里西奥'
-    //   },
-    //   duration:{
-    //     default: 135
-    //   },
-    //   brief:{
-    //     default: '故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？故事发生在墨西哥城的一个中产阶级社区“罗马”，讲述年轻女佣克里奥突如其来的两个意外，同时砸中了女佣克里奥和雇主索菲亚，两人究竟该如何面对苦涩茫然的生活？'
-    //   },
-    //   looked:{
-    //     default: '1024'
-    //   },
-    // },
+    data () {
+      return {
+        newsList: [
+          {
+            'title': ''
+          },
+          {
+            'title': ''
+          },
+          {
+            'title': ''
+          },
+          {
+            'title': ''
+          },
+          {
+            'title': ''
+          },
+        ]
+      }
+    },
     props:[
       "poster_img",
       "name",
@@ -109,6 +103,13 @@
       "brief",
       "looked"
     ],
+    mounted(){
+      this.newsList[0].title = this.name;
+      this.newsList[1].title = this.name;
+      this.newsList[2].title = this.name;
+      this.newsList[3].title = this.name;
+      this.newsList[4].title = this.name;
+    },
     computed: {
       red_width: function() {
         if(this.score<0)
@@ -127,12 +128,19 @@
           return '#8BC34A'
         else
           return '#FE5E8E'
+      },
+      optionLeft () {
+        return {
+          direction: 2,
+          limitMoveNum: 5
+        }
       }
     }
   }
 </script>
 
 <style scoped>
+
   .box{
     position: relative;
     width: 160px;
@@ -290,6 +298,24 @@
     font-size: 12px;
     color: #ccc;
     width: 160px;
+  }
+  ul li{
+    list-style-type:none;
+  }
+</style>
+
+<style lang="scss" scoped>
+  .seamless-warp2 {
+    overflow: hidden;
+    height: 25px;
+    width: 100px;
+    ul.item {
+      width: 300px;
+      li {
+        float: left;
+        margin-right: 50px;
+      }
+    }
   }
 </style>
 

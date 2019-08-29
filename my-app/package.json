@@ -19,6 +19,9 @@
     "vue-material-design-icons": "^3.4.0",
     "vue-multiple-progress": "^1.6.0",
     "vue-router": "^3.0.3",
+    "vue-seamless-scroll": "^1.1.17",
+    "vue-social-captcha": "^0.1.1",
+    "vue2-verify": "^1.1.5",
     "vuedraggable": "^2.23.0",
     "vuetify": "^2.0.0",
     "vuex": "^3.0.1"

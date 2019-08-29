@@ -22,9 +22,9 @@
           password: 'abcd'
         },
         crossDomain: true
-      }).then(body =>{
+      }).then(body => {
         this.info = body
-      });
+      })
     }
 
   }

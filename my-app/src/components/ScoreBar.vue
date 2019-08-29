@@ -23,8 +23,12 @@
     name: 'ScoreBar',
     data: () => ({
       svgPath: mdiAccount,
-      score: -40.7
     }),
+    props:{
+      score:{
+        default:-40.7
+      }
+    },
     computed: {
       red_width: function() {
         if(this.score<0)

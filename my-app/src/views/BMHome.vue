@@ -1,8 +1,8 @@
 <template>
+<<<<<<< Updated upstream
   <div>
     <div class="swiper">
       <Swiper />
-    </div>
     <div class="outer">
       <div style="position:relative;margin-top: 50px;margin-left: 30px">
         <SideBar />
@@ -65,6 +65,19 @@
         ]
       }
     },
+    mounted(){
+      this.axios({
+        method: 'post',
+        url: 'http://114.115.151.96:8666/search/filmlikelist',
+        data: {
+          pagesCount:20
+        },
+        crossDomain: true
+      }).then(body =>{
+        this.info = body;
+        this.$store.dispatch("getTodayRecommend", this.info.data);
+      });
+    },
     computed: {
       today_hot_content: {
         get() {
@@ -90,6 +103,9 @@
           this.$store.commit('handleTodayNewContent', newVal)
         }
       },
+    },
+    methods:{
+
     }
 
   }

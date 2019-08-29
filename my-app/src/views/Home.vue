@@ -58,8 +58,8 @@
     <SegText :text="hot" class="segtext-hot"/>
     <div style="width: 100%; display:-webkit-box; -webkit-box-pack:center; background-color: white">
       <div class="hot-content">
-        <HistoryComment :card_content="today_hot_content"/>
-        <HistoryComment :card_content="today_hot_content"/>
+        <HistoryComment :card_content="this.$store.state.today_recommend_content"/>
+        <HistoryComment :card_content="this.$store.state.today_recommend_content"/>
       </div>
     </div>
     <SegText :text="topic" class="segtext-topic"/>
@@ -87,12 +87,13 @@
 </template>
 
 <script>
-import SegText from '../components/SegText'
-import Comments from '../components/Comments'
-import HistoryComment from '../components/HistoryComment'
+import SegText from '../components/SegText';
+import Comments from '../components/Comments';
+import HistoryComment from '../components/HistoryComment';
 import BackGroundVideo from "../components/BackGroundVideo";
 
 export default {
+
   data () {
     return {
       error_img:'',
@@ -113,55 +114,41 @@ export default {
       ]
     }
   },
+  mounted() {
+    this.axios({
+      method: 'post',
+      url: 'http://114.115.151.96:8666/film/findAll',
+      data: {
+      },
+      crossDomain: true
+    }).then(body =>{
+      this.info = body;
+      this.$store.dispatch("getTodayRecommend", this.info.data);
+    });
+  },
   methods: {
+    test_log,
     unshow (){
       this.password_wrong_show = false
     },
     login () {
-      // 未处于注册态,进行登录
-      if(this.register == false) {
-        this.axios({
-          method: 'post',
-          url: 'http://114.115.151.96:8666/User/Login',
-          data: {
-            account: this.$store.state.username,
-            password: this.$store.state.password
-          },
-          crossDomain: true
-        }).then(body => {
-          this.info = body
-          // 用户不存在
-          if (this.info.data === 0) {
-            this.register = true;
-            this.$store.commit("clear");
-          }
-          // 密码错误
-          else if(this.info.data === -1){
-            this.password_wrong_show = true;
-            var that = this;
-            this.error_img = '密码错误';
-            setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
-            this.$store.commit("clear");
-          }
-          // 登录成功
-          else{
-            this.$router.push({path:'/selfinfo'});
-            this.$store.commit("logined");
-            this.$store.dispatch("changeAC", this.info.data.account);
-            this.$store.dispatch("changeInro",this.info.data.introduction);
-            this.$store.dispatch("changeSelfAvatar","http://114.115.151.96:8666/ProfilePicture/UserAccount/"+this.info.data.account);
-            that = this;
-            console.log(that.$store.state.selfAvatar)
-          }
-        });
-      }
-      // 处于注册态
-      else {
-        // 两次密码输入正确
-        if(this.$store.state.re_password == this.$store.state.password){
+      // 未输入账号
+      if (this.$store.state.username == '') {
+        this.password_wrong_show = true;
+        var that = this;
+        this.error_img = '请输入账号';
+        setTimeout(function () {
+          that.password_wrong_show = false;
+          that.$forceUpdate();
+        }, 2000);
+        this.$store.commit("clear");
+      } else {
+
+        // 未处于注册态,进行登录
+        if (this.register == false) {
           this.axios({
             method: 'post',
-            url: 'http://114.115.151.96:8666/User/Add',
+            url: 'http://114.115.151.96:8666/User/Login',
             data: {
               account: this.$store.state.username,
               password: this.$store.state.password
@@ -169,29 +156,76 @@ export default {
             crossDomain: true
           }).then(body => {
             this.info = body
-            // 注册成功
-            if(this.info.data == 1){
-              this.$store.commit("logined")
-              this.$router.push({path:'/selfinfo'})
-
+            // 用户不存在
+            if (this.info.data === 0) {
+              this.register = true;
+              this.$store.commit("clear");
             }
-            // 用户名已存在
-            else{
-              this.error_img = '用户已存在'
-              this.password_wrong_show = true
-              var that = this
-              setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
-              this.$store.commit("clearall");
+            // 密码错误
+            else if (this.info.data === -1) {
+              this.password_wrong_show = true;
+              var that = this;
+              this.error_img = '密码错误';
+              setTimeout(function () {
+                that.password_wrong_show = false;
+                that.$forceUpdate();
+              }, 2000);
+              this.$store.commit("clear");
+            }
+            // 登录成功
+            else {
+              this.$router.push({path: '/selfinfo'});
+              this.$store.commit("logined");
+              this.$store.dispatch("changeAC", this.info.data.user.account);
+              this.$store.dispatch("changeInro", this.info.data.user.introduction);
+              this.$store.dispatch("changeSelfAvatar", "http://114.115.151.96:8666/ProfilePicture/UserAccount/" + this.info.data.user.account);
             }
           });
         }
-        // 两次密码输入不正确
-        else{
-          this.error_img = '两次密码不相同'
-          this.password_wrong_show = true
-          var that = this
-          setTimeout(function() {that.password_wrong_show = false; that.$forceUpdate();}, 2000);
-          this.$store.commit("clear");
+        // 处于注册态
+        else {
+          // 两次密码输入正确
+          if (this.$store.state.re_password == this.$store.state.password) {
+            this.axios({
+              method: 'post',
+              url: 'http://114.115.151.96:8666/User/Add',
+              data: {
+                account: this.$store.state.username,
+                password: this.$store.state.password
+              },
+              crossDomain: true
+            }).then(body => {
+              this.info = body
+              // 注册成功
+              if (this.info.data == 1) {
+                this.$store.commit("logined")
+                this.$router.push({path: '/selfinfo'})
+
+              }
+              // 用户名已存在
+              else {
+                this.error_img = '用户已存在'
+                this.password_wrong_show = true
+                var that = this
+                setTimeout(function () {
+                  that.password_wrong_show = false;
+                  that.$forceUpdate();
+                }, 2000);
+                this.$store.commit("clearall");
+              }
+            });
+          }
+          // 两次密码输入不正确
+          else {
+            this.error_img = '两次密码不相同'
+            this.password_wrong_show = true
+            var that = this;
+            setTimeout(function () {
+              that.password_wrong_show = false;
+              that.$forceUpdate();
+            }, 2000);
+            this.$store.commit("clear");
+          }
         }
       }
     }

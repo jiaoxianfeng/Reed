@@ -34,9 +34,9 @@
         justify="start"
         style="margin-right: auto;margin-left: auto;"
       >
-        <v-col v-for="(data, index) in selfComments" :key="index" md="4"
-        >
-          <SelfComments />
+        <v-col v-for="(data, index) in selfComments" :key="index">
+          <SelfComments :name="data.account" :avatar_img="$store.state.selfAvatar"
+                        :comment="data.content" :title="data.title" :id="data.id"/>
         </v-col>
       </v-row>
     </div>
@@ -56,6 +56,7 @@ export default {
     name: "SelfInfo",
     data () {
       return {
+        info:'',
         history: '发帖历史',
         comment_book:[
           {},
@@ -80,13 +81,6 @@ export default {
           {},
           {},
           {}
-        ],
-        selfComments:[
-          {},
-          {},
-          {},
-          {},
-          {}
         ]
       }
     },
@@ -98,6 +92,30 @@ export default {
       HistoryComment,
       TeamManage
     },
+  mounted() {
+    this.axios({
+      method: 'post',
+      url: 'http://114.115.151.96:8666/Posting/SearchHistory',
+      data: {
+        account: this.$store.state.account,
+      },
+      crossDomain: true
+    }).then(body =>{
+      this.info = body;
+      this.$store.dispatch("changeSComments", this.info.data);
+      console.log(this.$store.state.selfComments)
+    });
+  },
+  computed:{
+    selfComments:{
+      get(){
+        return this.$store.state.selfComments
+      },
+      set(newVal) {
+        this.$store.commit('handleSelfComments', newVal)
+      }
+    },
+  }
 }
 </script>
 

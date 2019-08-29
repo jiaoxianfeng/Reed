@@ -8,7 +8,7 @@
     <Footer/>
   </v-app>
   <!--<v-app>-->
-    <!--<router-view/>-->
+    <!--<InfoCard/>-->
   <!--</v-app>-->
 </template>
 

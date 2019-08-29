@@ -10,6 +10,7 @@
       class="nav-container"
       style="border-radius: 0px"
     >
+      <div style="width: 1px"></div>
       <img src= "../imgs/text-only -white.png" class="logo-header">
       <router-link class="link-text" to="/"><v-tab to="/" :aria-selected="grow" style="height: 100%">主页</v-tab></router-link>
       <router-link class="link-text" to="/bmhome"><v-tab to="/bmhome" style="height: 100%">书籍</v-tab></router-link>
@@ -222,6 +223,12 @@ export default {
         this.$store.commit('handleMassageContent', newVal)
       }
     },
+    optionLeft () {
+      return {
+        direction: 2,
+        limitMoveNum: 2
+      }
+    }
   }
 }
 </script>

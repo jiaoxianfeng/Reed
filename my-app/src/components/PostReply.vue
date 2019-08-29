@@ -13,8 +13,9 @@
           filled
           auto-grow
           :value="reply"
+          v-model="reply"
         ></v-textarea>
-        <v-btn depressed large color="#AEAEAE" dark width="160" class="reply-btn">
+        <v-btn depressed large color="#AEAEAE" dark width="160" class="reply-btn" v-on:click="replySubmit">
           发表
         </v-btn>
       </v-container>
@@ -28,10 +29,44 @@
 
 <script>
     export default {
-        name: "PostReply",
+
+      name: "PostReply",
       data () {
         return {
-          reply: ''
+          reply: '',
+          somedata:true,
+        }
+      },
+      methods:{
+        replySubmit:function () {
+          console.log(11111111111111);
+          console.log(this.reply);
+          this.axios({
+            method: 'post',
+            url: 'http://114.115.151.96:8666/reply/add',
+            data: {
+              replyerId:this.user_id,
+              content:this.reply,
+              placeId:this.id,
+              type:this.type,
+            },
+            crossDomain: true
+          }).then(body =>{
+
+          });
+          this.$emit('child-say', this.somedata);
+          this.reply = '';
+        }
+      },
+      props:{
+        type:{
+          default: 1
+        },
+        user_id:{
+          default: ''
+        },
+        id:{
+          default: ''
         }
       }
     }

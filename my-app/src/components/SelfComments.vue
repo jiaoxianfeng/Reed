@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <v-card
     class="mx-auto comments-card"
     color="#ccc"
@@ -26,7 +26,7 @@
         <div v-if="toptag===2" class="essence">精华</div>
       </div>
     </div>
-    <v-card-text v-if="reply===0" class="text-title font-weight-bold">
+    <v-card-text v-if="reply===0 && !bm_comment" class="text-title font-weight-bold" >
       {{title}}
     </v-card-text>
 
@@ -79,10 +79,10 @@
             </v-list>
           </v-menu>
           <v-row justify="end" style="padding-right: 10px">
-            <v-icon class="mr-1" color="white">mdi-comment</v-icon>
-            <span class="subheading mr-2">{{num_comment}}</span>
+            <v-icon class="mr-1" color="white" v-if="!bm_comment">mdi-comment</v-icon>
+            <span class="subheading mr-2" v-if="!bm_comment">{{num_comment}}</span>
             <span class="mr-1"></span>
-            <v-icon class="mr-1" color="white">mdi-thumb-up</v-icon>
+            <v-icon class="mr-1" :color="like_color" @click="like">mdi-thumb-up</v-icon>
             <span class="subheading">{{num_like}}</span>
           </v-row>
         </v-row>
@@ -95,9 +95,59 @@
   export default {
     name: "Comments",
     data: () => ({
-        //
+      like_color:'white',
+      num_like:''
     }),
+    mounted(){
+      this.isLiked();
+      this.clickLike();
+    },
+    methods:{
+      isLiked:function(){
+        this.axios({
+          method: 'post',
+          url: 'http://114.115.151.96:8666/Like/IsLike',
+          data: {
+            account:this.$store.state.account,
+            postingId:this.id
+          },
+          crossDomain: true
+        }).then(body =>{
+          console.log(body);
+          this.like_color = body.data ? 'red' : 'white';
+        });
+      },
+      clickLike:function (){
+        this.axios({
+          method: 'post',
+          url: 'http://114.115.151.96:8666/Like/CountNum',
+          data: {
+            postingId:this.id
+          },
+          crossDomain: true
+        }).then(body =>{
+          this.num_like = body.data
+        });
+      },
+      like: function () {
+        this.like_color = (this.like_color == 'white') ? 'red' : 'white';
+        this.axios({
+          method: 'post',
+          url: 'http://114.115.151.96:8666/Like/ChangeStatus',
+          data: {
+            account:this.$store.state.account,
+            postingId:this.id
+          },
+          crossDomain: true
+        }).then(body =>{
+          this.clickLike();
+        });
+      }
+    },
     props: {
+      bm_comment:{
+        default: true
+      },
       toptag:{
         default: 0
       },
@@ -122,14 +172,14 @@
       num_comment: {
         default: 256
       },
-      num_like:{
-        default: 45
-      },
       reply_comment:{
         default: '"Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."'
       },
       title:{
         default: '大家更喜欢什么风格的诗呢？'
+      },
+      id:{
+        default:''
       }
     }
   }

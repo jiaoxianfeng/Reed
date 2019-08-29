@@ -4,15 +4,15 @@
       <div class="post-avatar">
         <v-img
           class="avatar-img"
-          src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg"
+          :src="avatar_img"
           height="100px"
           width="100px"
           position="center center"
         ></v-img>
       </div>
       <div class="post-content">
-        <p class="user-name">logos</p>
-        <p class="post-content-inner">  "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."</p>
+        <p class="user-name">{{star_reply_name}}</p>
+        <p class="post-content-inner">{{reply_content}}</p>
         <v-card-actions>
           <v-list-item class="grow">
             <v-row
@@ -21,9 +21,9 @@
               class="comment-bottom"
             >
               <v-icon class="mr-1" color="white">mdi-comment</v-icon>
-              <span class="subheading mr-2">999</span>
+              <span class="subheading mr-2">{{comment_num}}</span>
               <v-icon class="mr-1" color="white">mdi-thumb-up</v-icon>
-              <span class="subheading">1w+</span>
+              <span class="subheading">{{like_num}}</span>
             </v-row>
           </v-list-item>
         </v-card-actions>
@@ -39,7 +39,27 @@
 
 <script>
   export default {
-    name: "Comments"
+    name: "Comments",
+    data(){
+
+    },
+    props:{
+      avatar_img:{
+        default: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg'
+      },
+      star_reply_name:{
+        default: 'logos'
+      },
+      reply_content:{
+        default: '  "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."'
+      },
+      like_num:{
+        default: 999
+      },
+      comment_num:{
+        default: '1w+'
+      }
+    }
   }
 </script>
 
