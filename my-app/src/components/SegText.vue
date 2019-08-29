@@ -21,7 +21,7 @@ export default {
 <style scoped>
   .space{
     height: 130px;
-    background-color: #AAAAAA;
+    background-color: #333;
     display:-webkit-box;
     -webkit-box-align:center;/* 垂直居中 */
     font-family: "Microsoft YaHei" ! important;

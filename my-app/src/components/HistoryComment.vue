@@ -3,6 +3,7 @@
     class="mx-auto"
     height="100%"
     max-width="100%"
+    style="background: transparent"
   >
     <v-slide-group
       v-model="model"
