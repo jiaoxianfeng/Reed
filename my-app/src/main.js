@@ -9,12 +9,10 @@ import Vuetify from 'vuetify/lib'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueDraggable from 'vue-draggable'
-Vue.prototype.axios = axios;
-// 导入极验
-require('@/assets/gt.js');
-// 绑定到原型
-Vue.prototype.$initGeet=initGeetest;
-Vue.config.productionTip = false
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts
+require('echarts-wordcloud')
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 Vue.use(Progress)

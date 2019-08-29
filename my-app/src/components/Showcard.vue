@@ -2,7 +2,7 @@
   <v-card
     class="card"
     color="#CCC"
-    height="630px"
+    height="650px"
     elevation="0"
     tile
     align="center"
@@ -27,15 +27,20 @@
           <div class="actor-name">时长:135分钟</div>
           <v-row class="vote-button" justify="start" align="end">
             <v-btn class="ma-2" color="white" dark small elevation="0">
-              <v-icon size="28px" color="green">mdi-thumb-up</v-icon>
+              <v-icon size="28px" color="red">mdi-thumb-down</v-icon>
             </v-btn>
             <v-btn class="ma-2" color="white" dark small elevation="0">
-              <v-icon size="28px" color="red">mdi-thumb-down</v-icon>
+              <v-icon size="28px" color="green">mdi-thumb-up</v-icon>
             </v-btn>
           </v-row>
         </v-col>
       </v-col>
     </v-row>
+    <div class="tag-outer">
+      <div class="tag-container">
+          <div v-for="(data,tag) in tags" :key="tag" class="tag">{{data.tag}}</div>
+      </div>
+    </div>
   </v-card>
 </template>
 
@@ -44,6 +49,25 @@
   export default {
     name: "Showcard",
     components: {ScoreBar},
+      data (){
+        return{
+            tags: [
+                {
+                    index:1,
+                    tag:"剧情"
+                },{
+                    index:2,
+                    tag:"故事"
+                },{
+                    index:3,
+                    tag:"亲情"
+                },{
+                    index:4,
+                    tag:"美国"
+                },
+            ]
+        }
+      }
   }
 </script>
 <style scoped>
@@ -100,5 +124,36 @@
 
   .vote-button{
     width: 100%;
+  }
+
+  .tag-outer{
+    display: flex;
+    margin-top: -5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .tag-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:auto;
+  }
+
+  .tag{
+    padding: 2px;
+    margin-right: 5px;
+    background: white;
+    color: #aaa;
+    font-size: 14px;
+    border-radius: 5px;
+    min-width: 80px;
+  }
+
+  .tag:hover{
+    color: white;
+    background: #aaa;
   }
 </style>

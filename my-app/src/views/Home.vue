@@ -77,9 +77,10 @@
                     :num_comment="topics.num_comment" :num_like="topics.num_like"
           />
         </v-col>
+
       </v-row>
       <div style="height: 100px"></div>
-      <Gtpage/>
+
     </div>
 
   </div>
@@ -90,7 +91,6 @@ import SegText from '../components/SegText'
 import Comments from '../components/Comments'
 import HistoryComment from '../components/HistoryComment'
 import BackGroundVideo from "../components/BackGroundVideo";
-import Gtpage from "../components/GtPage";
 
 export default {
   data () {
@@ -234,8 +234,7 @@ export default {
     SegText,
     Comments,
     HistoryComment,
-    BackGroundVideo,
-    Gtpage
+    BackGroundVideo
   },
 };
 </script>
