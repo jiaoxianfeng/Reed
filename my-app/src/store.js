@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    pass: 'false',
     selfAvatar:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2579313585,1854004294&fm=26&gp=0.jpg',
     username: '',
     password: '',
@@ -284,6 +285,9 @@ export default new Vuex.Store({
     handelTodayRecommendContent(state, newVal){
       state.today_recommend_content = newVal;
     },
+    handelPass(state, newVal){
+      state.pass = newVal;
+    },
     handleTodayHotContent(state, newVal){
       state.today_hot_content = newVal;
     },
@@ -320,6 +324,9 @@ export default new Vuex.Store({
     changeAccount(state, newAccount){
       state.account = newAccount;
 
+    },
+    changePass(state){
+      state.pass = true;
     },
     changeIntroduction(state, newIntroduction){
       state.introduction = newIntroduction;

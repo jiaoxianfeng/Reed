@@ -1,18 +1,5 @@
 <template>
   <div class="about">
-    <SideBar />
+    <h1>This is an about page</h1>
   </div>
 </template>
-
-<script>
-  import SideBar from "./SideBar";
-  export default {
-      name: 'About',
-      components:{
-          SideBar,
-      },
-      data() {
-
-      }
-  }
-</script>
